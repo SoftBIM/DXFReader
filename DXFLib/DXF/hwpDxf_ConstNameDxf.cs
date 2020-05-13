@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    class hwpDxf_ConstNameDxf
+	public class hwpDxf_ConstNameDxf
 	{
 	public const string pcstrDxfObject = "OBJECT";
 

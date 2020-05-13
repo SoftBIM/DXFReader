@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    class hwpDxf_ConstNameNode
+	public class hwpDxf_ConstNameNode
 	{
 		public const string pcstrNodeNameUnk = "Unbekannt";
 

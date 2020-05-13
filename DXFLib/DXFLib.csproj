@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,14 +42,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acad\AcadApplications.cs" />
+    <Compile Include="Acad\AcadDatabases.cs" />
+    <Compile Include="Acad\Enums.cs" />
+    <Compile Include="Acad\hwpDxf_Enums.cs" />
+    <Compile Include="Acad\hwpDxf_Vars.cs" />
+    <Compile Include="Acad\NodeObject.cs" />
+    <Compile Include="Acad\NodeObjects.cs" />
     <Compile Include="DXF\hwpDxf_ConstGrp.cs" />
     <Compile Include="DXF\hwpDxf_ConstMisc.cs" />
     <Compile Include="DXF\hwpDxf_ConstNameDxf.cs" />
     <Compile Include="DXF\hwpDxf_ConstNameNode.cs" />
+    <Compile Include="DXF\hwpDxf_ConstNameObj.cs" />
+    <Compile Include="DXF\hwpDxf_ConstVersion.cs" />
+    <Compile Include="DXF\hwpDxf_Functions.cs" />
+    <Compile Include="DXF\hwpDxf_List.cs" />
+    <Compile Include="DXF\hwpDxf_ReadBas.cs" />
+    <Compile Include="DXF\SysVars.cs" />
+    <Compile Include="DXF\UtilMath.cs" />
+    <Compile Include="DXF\UtilTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Acad\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
