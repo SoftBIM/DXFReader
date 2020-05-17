@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -43,7 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acad\AcadApplications.cs" />
+    <Compile Include="Acad\AcadClass.cs" />
+    <Compile Include="Acad\AcadClasses.cs" />
+    <Compile Include="Acad\AcadDatabase.cs" />
     <Compile Include="Acad\AcadDatabases.cs" />
+    <Compile Include="Acad\AcadDocument.cs" />
+    <Compile Include="Acad\AcadObject.cs" />
+    <Compile Include="Acad\AcadSysVar.cs" />
+    <Compile Include="Acad\AcadSysVars.cs" />
+    <Compile Include="Acad\AcadXData.cs" />
+    <Compile Include="Acad\AcadXDataApp.cs" />
+    <Compile Include="Acad\AcadXDataValue.cs" />
     <Compile Include="Acad\Enums.cs" />
     <Compile Include="Acad\hwpDxf_Enums.cs" />
     <Compile Include="Acad\hwpDxf_Vars.cs" />
@@ -55,9 +66,12 @@
     <Compile Include="DXF\hwpDxf_ConstNameNode.cs" />
     <Compile Include="DXF\hwpDxf_ConstNameObj.cs" />
     <Compile Include="DXF\hwpDxf_ConstVersion.cs" />
+    <Compile Include="DXF\hwpDxf_Enums.cs" />
     <Compile Include="DXF\hwpDxf_Functions.cs" />
     <Compile Include="DXF\hwpDxf_List.cs" />
     <Compile Include="DXF\hwpDxf_ReadBas.cs" />
+    <Compile Include="DXF\hwpDxf_XData.cs" />
+    <Compile Include="DXF\SysVar.cs" />
     <Compile Include="DXF\SysVars.cs" />
     <Compile Include="DXF\UtilMath.cs" />
     <Compile Include="DXF\UtilTime.cs" />
