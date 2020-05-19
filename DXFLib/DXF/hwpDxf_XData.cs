@@ -9,64 +9,64 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class hwpDxf_XData
+	public class hwpDxf_XData
 	{
-		//public static bool BkDXFXData_IsArrayCode(short vintCode, ref short nrintNextCode = 0)
-		//{
-		//	nrintNextCode = -1;
-		//	checked
-		//	{
-		//		bool dblnValid = default(bool);
-		//		switch (vintCode)
-		//		{
-		//			case 1010:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1020:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1030:
-		//				dblnValid = true;
-		//				break;
-		//			case 1011:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1021:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1031:
-		//				dblnValid = true;
-		//				break;
-		//			case 1012:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1022:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1032:
-		//				dblnValid = true;
-		//				break;
-		//			case 1013:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1023:
-		//				dblnValid = true;
-		//				nrintNextCode = (short)unchecked(vintCode + 10);
-		//				break;
-		//			case 1033:
-		//				dblnValid = true;
-		//				break;
-		//		}
-		//		return dblnValid;
-		//	}
-		//}
+		public static bool BkDXFXData_IsArrayCode(short vintCode, ref short nrintNextCode = 0)
+		{
+			nrintNextCode = -1;
+			checked
+			{
+				bool dblnValid = default(bool);
+				switch (vintCode)
+				{
+					case 1010:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1020:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1030:
+						dblnValid = true;
+						break;
+					case 1011:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1021:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1031:
+						dblnValid = true;
+						break;
+					case 1012:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1022:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1032:
+						dblnValid = true;
+						break;
+					case 1013:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1023:
+						dblnValid = true;
+						nrintNextCode = (short)unchecked(vintCode + 10);
+						break;
+					case 1033:
+						dblnValid = true;
+						break;
+				}
+				return dblnValid;
+			}
+		}
 
 		public static bool BkDXFXData_TypeIsValid(int vlngXDataType, bool nvblnWithAppName = true, bool nvblnExtCoords = true)
 		{
@@ -335,67 +335,67 @@ namespace DXFLib.DXF
 			}
 		}
 
-		//public static bool BkDXFXData_Check(object vvarXDataType, object vvarXDataValue, bool nvblnWithAppName = true, bool nvblnExtCoords = true, ref string nrstrErrMsg = "")
-		//{
-		//	nrstrErrMsg = null;
-		//	if (((VariantType.Array & Information.VarType(RuntimeHelpers.GetObjectValue(vvarXDataType))) != VariantType.Array) | ((VariantType.Array & Information.VarType(RuntimeHelpers.GetObjectValue(vvarXDataValue))) != VariantType.Array))
-		//	{
-		//		nrstrErrMsg = "Keine gültigen Arrays.";
-		//	}
-		//	else
-		//	{
-		//		int dlngLBoundXDataType = Information.LBound((Array)vvarXDataType);
-		//		int dlngLBoundXDataValue = Information.LBound((Array)vvarXDataValue);
-		//		int dlngUBoundXDataType = Information.UBound((Array)vvarXDataType);
-		//		int dlngUBoundXDataValue = Information.UBound((Array)vvarXDataValue);
-		//		if (dlngLBoundXDataType != dlngLBoundXDataValue || dlngUBoundXDataType != dlngUBoundXDataValue || dlngLBoundXDataType != 0)
-		//		{
-		//			nrstrErrMsg = "Arrays besitzen unterschiedliche Grenzen.";
-		//		}
-		//		else
-		//		{
-		//			int num = dlngLBoundXDataType;
-		//			int num2 = dlngUBoundXDataType;
-		//			int dlngIdx = num;
-		//			checked
-		//			{
-		//				while (true)
-		//				{
-		//					if (dlngIdx <= num2)
-		//					{
-		//						object dvarXDataType = RuntimeHelpers.GetObjectValue(NewLateBinding.LateIndexGet(vvarXDataType, new object[1]
-		//						{
-		//						dlngIdx
-		//						}, null));
-		//						object dvarXDataValue = RuntimeHelpers.GetObjectValue(NewLateBinding.LateIndexGet(vvarXDataValue, new object[1]
-		//						{
-		//						dlngIdx
-		//						}, null));
-		//						if (Information.VarType(RuntimeHelpers.GetObjectValue(dvarXDataType)) != VariantType.Short)
-		//						{
-		//							nrstrErrMsg = Conversions.ToString(dlngIdx + 1) + ". Gruppencode-Variablentyp ist ungültig.";
-		//							break;
-		//						}
-		//						if (!BkDXFXData_TypeIsValid(Conversions.ToInteger(dvarXDataType), nvblnWithAppName, nvblnExtCoords))
-		//						{
-		//							nrstrErrMsg = Conversions.ToString(dlngIdx + 1) + ". Gruppencode ist ungültig.";
-		//							break;
-		//						}
-		//						if (!BkDXFXData_ValueIsValid(Conversions.ToInteger(dvarXDataType), RuntimeHelpers.GetObjectValue(dvarXDataValue), nvblnWithAppName, nvblnExtCoords))
-		//						{
-		//							nrstrErrMsg = Conversions.ToString(Operators.ConcatenateObject(Operators.ConcatenateObject(Conversions.ToString(dlngIdx + 1) + ". Wert ist für Gruppencode ", dvarXDataType), " ungültig."));
-		//							break;
-		//						}
-		//						dlngIdx++;
-		//						continue;
-		//					}
-		//					return true;
-		//				}
-		//			}
-		//		}
-		//	}
-		//	bool BkDXFXData_Check = default(bool);
-		//	return BkDXFXData_Check;
-		//}
+		public static bool BkDXFXData_Check(object vvarXDataType, object vvarXDataValue, bool nvblnWithAppName = true, bool nvblnExtCoords = true, ref string nrstrErrMsg = "")
+		{
+			nrstrErrMsg = null;
+			if (((VariantType.Array & Information.VarType(RuntimeHelpers.GetObjectValue(vvarXDataType))) != VariantType.Array) | ((VariantType.Array & Information.VarType(RuntimeHelpers.GetObjectValue(vvarXDataValue))) != VariantType.Array))
+			{
+				nrstrErrMsg = "Keine gültigen Arrays.";
+			}
+			else
+			{
+				int dlngLBoundXDataType = Information.LBound((Array)vvarXDataType);
+				int dlngLBoundXDataValue = Information.LBound((Array)vvarXDataValue);
+				int dlngUBoundXDataType = Information.UBound((Array)vvarXDataType);
+				int dlngUBoundXDataValue = Information.UBound((Array)vvarXDataValue);
+				if (dlngLBoundXDataType != dlngLBoundXDataValue || dlngUBoundXDataType != dlngUBoundXDataValue || dlngLBoundXDataType != 0)
+				{
+					nrstrErrMsg = "Arrays besitzen unterschiedliche Grenzen.";
+				}
+				else
+				{
+					int num = dlngLBoundXDataType;
+					int num2 = dlngUBoundXDataType;
+					int dlngIdx = num;
+					checked
+					{
+						while (true)
+						{
+							if (dlngIdx <= num2)
+							{
+								object dvarXDataType = RuntimeHelpers.GetObjectValue(NewLateBinding.LateIndexGet(vvarXDataType, new object[1]
+								{
+								dlngIdx
+								}, null));
+								object dvarXDataValue = RuntimeHelpers.GetObjectValue(NewLateBinding.LateIndexGet(vvarXDataValue, new object[1]
+								{
+								dlngIdx
+								}, null));
+								if (Information.VarType(RuntimeHelpers.GetObjectValue(dvarXDataType)) != VariantType.Short)
+								{
+									nrstrErrMsg = Conversions.ToString(dlngIdx + 1) + ". Gruppencode-Variablentyp ist ungültig.";
+									break;
+								}
+								if (!BkDXFXData_TypeIsValid(Conversions.ToInteger(dvarXDataType), nvblnWithAppName, nvblnExtCoords))
+								{
+									nrstrErrMsg = Conversions.ToString(dlngIdx + 1) + ". Gruppencode ist ungültig.";
+									break;
+								}
+								if (!BkDXFXData_ValueIsValid(Conversions.ToInteger(dvarXDataType), RuntimeHelpers.GetObjectValue(dvarXDataValue), nvblnWithAppName, nvblnExtCoords))
+								{
+									nrstrErrMsg = Conversions.ToString(Operators.ConcatenateObject(Operators.ConcatenateObject(Conversions.ToString(dlngIdx + 1) + ". Wert ist für Gruppencode ", dvarXDataType), " ungültig."));
+									break;
+								}
+								dlngIdx++;
+								continue;
+							}
+							return true;
+						}
+					}
+				}
+			}
+			bool BkDXFXData_Check = default(bool);
+			return BkDXFXData_Check;
+		}
 	}
 }

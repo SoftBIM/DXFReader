@@ -43,12 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acad\Acad2DVertex.cs" />
+    <Compile Include="Acad\AcadApplication.cs" />
     <Compile Include="Acad\AcadApplications.cs" />
     <Compile Include="Acad\AcadClass.cs" />
     <Compile Include="Acad\AcadClasses.cs" />
     <Compile Include="Acad\AcadDatabase.cs" />
     <Compile Include="Acad\AcadDatabases.cs" />
     <Compile Include="Acad\AcadDocument.cs" />
+    <Compile Include="Acad\AcadDocuments.cs" />
+    <Compile Include="Acad\AcadEntity.cs" />
     <Compile Include="Acad\AcadObject.cs" />
     <Compile Include="Acad\AcadSysVar.cs" />
     <Compile Include="Acad\AcadSysVars.cs" />
@@ -60,6 +64,7 @@
     <Compile Include="Acad\hwpDxf_Vars.cs" />
     <Compile Include="Acad\NodeObject.cs" />
     <Compile Include="Acad\NodeObjects.cs" />
+    <Compile Include="DXF\File.cs" />
     <Compile Include="DXF\hwpDxf_ConstGrp.cs" />
     <Compile Include="DXF\hwpDxf_ConstMisc.cs" />
     <Compile Include="DXF\hwpDxf_ConstNameDxf.cs" />
@@ -69,10 +74,32 @@
     <Compile Include="DXF\hwpDxf_Enums.cs" />
     <Compile Include="DXF\hwpDxf_Functions.cs" />
     <Compile Include="DXF\hwpDxf_List.cs" />
+    <Compile Include="DXF\hwpDxf_Printer.cs" />
     <Compile Include="DXF\hwpDxf_ReadBas.cs" />
+    <Compile Include="DXF\hwpDxf_ReadEnt.cs" />
+    <Compile Include="DXF\hwpDxf_ReadObj.cs" />
+    <Compile Include="DXF\hwpDxf_ReadRef.cs" />
+    <Compile Include="DXF\hwpDxf_SysVar.cs" />
+    <Compile Include="DXF\hwpDxf_Unit.cs" />
     <Compile Include="DXF\hwpDxf_XData.cs" />
+    <Compile Include="DXF\SecBlocks.cs" />
+    <Compile Include="DXF\SecClasses.cs" />
+    <Compile Include="DXF\SecEntities.cs" />
+    <Compile Include="DXF\SecHeader.cs" />
+    <Compile Include="DXF\SecObjects.cs" />
+    <Compile Include="DXF\SecTables.cs" />
+    <Compile Include="DXF\SecThumbnail.cs" />
     <Compile Include="DXF\SysVar.cs" />
     <Compile Include="DXF\SysVars.cs" />
+    <Compile Include="DXF\TableAppid.cs" />
+    <Compile Include="DXF\TableBlockRecord.cs" />
+    <Compile Include="DXF\TableDimStyle.cs" />
+    <Compile Include="DXF\TableLayer.cs" />
+    <Compile Include="DXF\TableLType.cs" />
+    <Compile Include="DXF\TableStyle.cs" />
+    <Compile Include="DXF\TableUCS.cs" />
+    <Compile Include="DXF\TableView.cs" />
+    <Compile Include="DXF\TableVPort.cs" />
     <Compile Include="DXF\UtilMath.cs" />
     <Compile Include="DXF\UtilTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

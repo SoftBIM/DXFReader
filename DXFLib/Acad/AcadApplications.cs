@@ -10,7 +10,21 @@ namespace DXFLib.Acad
     public class AcadApplications
 	{
 		bool mblnOpened = true;
-		OrderedDictionary mcolClass = new OrderedDictionary();
+		OrderedDictionary<long, AcadApplication> mcolClass = new OrderedDictionary<long, AcadApplication>();
 		long mlngApplicationIndex = -1;
-}
+
+		public AcadApplication Item(long index)
+		{
+			AcadApplication acadApplication = null;
+			if (mcolClass.Contains(index)
+			{
+				acadApplication = mcolClass[index];
+			}
+			else
+			{
+				throw new IndexOutOfRangeException();
+			}
+			return acadApplication;
+		}
+	}
 }
