@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-    class AcadApplication : NodeObject
+	class AcadApplication : NodeObject
 	{
 		public delegate void ActiveDocumentChangedEventHandler();
 
@@ -718,4 +723,5 @@ namespace DXFLib.Acad
 			acadSysVar9.FriendSetAppDefault(vvarAppDefault5, ref rstrErrMsg);
 		}
 	}
+
 }

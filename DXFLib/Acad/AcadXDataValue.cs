@@ -5,10 +5,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System.Runtime.CompilerServices;
+using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-    public class AcadXDataValue : NodeObject
+	public class AcadXDataValue : NodeObject
 	{
 		private const string cstrClassName = "AcadXDataValue";
 
@@ -148,14 +152,14 @@ namespace DXFLib.Acad
 		~AcadXDataValue()
 		{
 			FriendQuit();
-			//base.Finalize();
+			base.Finalize();
 		}
 
 		internal new void FriendQuit()
 		{
 			if (mblnOpened)
 			{
-				//base.FriendQuit();
+				base.FriendQuit();
 				mblnOpened = false;
 			}
 		}
