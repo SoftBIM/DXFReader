@@ -141,6 +141,15 @@
     <Compile Include="Acad\AcadPolygonMeshVertex.cs" />
     <Compile Include="Acad\AcadPolyline.cs" />
     <Compile Include="Acad\AcadPolylineDictionary.cs" />
+    <Compile Include="Acad\AcadPreferences.cs" />
+    <Compile Include="Acad\AcadProxyObject.cs" />
+    <Compile Include="Acad\AcadPViewport.cs" />
+    <Compile Include="Acad\AcadRay.cs" />
+    <Compile Include="Acad\AcadRayDictionary.cs" />
+    <Compile Include="Acad\AcadRegisteredApplication.cs" />
+    <Compile Include="Acad\AcadRegisteredApplications.cs" />
+    <Compile Include="Acad\AcadSeedPoint.cs" />
+    <Compile Include="Acad\AcadSeedPoints.cs" />
     <Compile Include="Acad\AcadSysVar.cs" />
     <Compile Include="Acad\AcadSysVars.cs" />
     <Compile Include="Acad\AcadXData.cs" />
