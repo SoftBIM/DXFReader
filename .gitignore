@@ -1,0 +1,9 @@
+/.vs/DXFReader/v16/*.suo
+/.vs/DXFReader/v16/Server/sqlite3/db.lock
+/.vs/DXFReader/v16/Server/sqlite3/storage.ide
+/.vs/DXFReader/v16/TestStore/0/*.testlog
+/.vs/DXFReader/v16/TestStore/0/testlog.manifest
+/DXFLib/obj/Debug/*.cache
+/Misc/DXF_Classes1.png
+/Misc/DXF_Classes2.png
+/DXFLib/obj/Debug/DXFLib.csproj.FileListAbsolute.txt
