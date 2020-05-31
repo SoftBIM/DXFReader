@@ -1,8 +1,15 @@
-﻿using Microsoft.VisualBasic;
+﻿using DXFLib.Acad;
+using DXFLib.Basic;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Compatibility.VB6;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +35,7 @@ namespace DXFLib.DXF
 
 		private const double cdblMaxHexFncDbl = 2147483647.0;
 
-		public static bool BkDXF_ValidHexNum(string vstrHexNum, ref int nrlngErrNum = 0, ref string nrstrErrMsg = "")
+		public static bool BkDXF_ValidHexNum(string vstrHexNum, ref int nrlngErrNum, ref string nrstrErrMsg)
 		{
 			nrlngErrNum = 0;
 			nrstrErrMsg = null;
@@ -55,7 +62,7 @@ namespace DXFLib.DXF
 			return BkDXF_ValidHexNum;
 		}
 
-		public static bool BkDXF_ValidHexDbl(double vdblDouble, ref int nrlngErrNum = 0, ref string nrstrErrMsg = "")
+		public static bool BkDXF_ValidHexDbl(double vdblDouble, ref int nrlngErrNum, ref string nrstrErrMsg)
 		{
 			nrlngErrNum = 0;
 			nrstrErrMsg = null;
@@ -640,7 +647,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXF_CheckVariantForValueReal(object vvarValue, ref string nrstrErrMsg = "")
+		public static bool BkDXF_CheckVariantForValueReal(object vvarValue, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			VariantType dnumVarType = Information.VarType(RuntimeHelpers.GetObjectValue(vvarValue));
@@ -653,7 +660,7 @@ namespace DXFLib.DXF
 			return true;
 		}
 
-		public static bool BkDXF_CheckVariantForArrayReal(object vvarArray, int vlngLBound, int vlngUBound, ref string nrstrErrMsg = "")
+		public static bool BkDXF_CheckVariantForArrayReal(object vvarArray, int vlngLBound, int vlngUBound, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -697,7 +704,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXF_SetArrayReal(ref object ravarArrayDec, ref object ravarArrayDbl, object vavarArray, ref string nrstrErrMsg = "")
+		public static bool BkDXF_SetArrayReal(ref object ravarArrayDec, ref object ravarArrayDbl, object vavarArray, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool flag = false;
@@ -725,7 +732,7 @@ namespace DXFLib.DXF
 			return BkDXF_SetArrayReal;
 		}
 
-		public static bool BkDXF_SetValueReal(ref object rvarValueDec, ref object rvarValueDbl, object vvarValue, ref string nrstrErrMsg = "")
+		public static bool BkDXF_SetValueReal(ref object rvarValueDec, ref object rvarValueDbl, object vvarValue, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (BkDXF_CheckVariantForValueReal(RuntimeHelpers.GetObjectValue(vvarValue), ref nrstrErrMsg))
@@ -738,7 +745,7 @@ namespace DXFLib.DXF
 			return BkDXF_SetValueReal;
 		}
 
-		public static string BkDXF_SeperateFilePrefix(string vstrFile, ref string nrstrPre = "", ref string nrstrPost = "")
+		public static string BkDXF_SeperateFilePrefix(string vstrFile, ref string nrstrPre, ref string nrstrPost)
 		{
 			int dlngSlashPos = Strings.InStrRev(vstrFile, "\\");
 			checked
@@ -783,7 +790,7 @@ namespace DXFLib.DXF
 			return dstrLine2;
 		}
 
-		public static bool BkDXF_OpenFile(string vstrFileName, ref string nrstrAcadVer = "", ref string nrstrErrMsg = "")
+		public static bool BkDXF_OpenFile(string vstrFileName, ref string nrstrAcadVer, ref string nrstrErrMsg)
 		{
 			nrstrAcadVer = null;
 			nrstrErrMsg = null;

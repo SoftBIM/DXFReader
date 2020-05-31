@@ -1,6 +1,8 @@
-﻿using Microsoft.VisualBasic;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class hwpDxf_List
+	public class hwpDxf_List
 	{
 		public static void BkDXFList_AddToDictLine(ref int rlngIdx, int vlngCode, object vvarValue, ref Dictionary<object, object> robjDictReadCodes, ref Dictionary<object, object> robjDictReadValues)
 		{

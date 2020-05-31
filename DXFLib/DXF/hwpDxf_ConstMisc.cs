@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DXFLib.DXF
 {
 	public class hwpDxf_ConstMisc
-    {
+	{
 
 		public const bool pcblnIgnoreUnknowDictionaries = true;
 

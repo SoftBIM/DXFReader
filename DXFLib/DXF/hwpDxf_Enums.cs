@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class hwpDxf_Enums
+	public class hwpDxf_Enums
 	{
 		public enum UNITS_BASE
 		{

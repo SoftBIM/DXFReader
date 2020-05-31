@@ -10,7 +10,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-	class AcadHatch : AcadEntity
+	public class AcadHatch : AcadEntity
 	{
 		private const string cstrClassName = "AcadHatch";
 
@@ -451,7 +451,7 @@ namespace DXFLib.Acad
 		~AcadHatch()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
