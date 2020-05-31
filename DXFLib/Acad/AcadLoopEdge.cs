@@ -9,7 +9,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-    public class AcadLoopEdge : NodeObject
+	public class AcadLoopEdge : NodeObject
 	{
 		private const string cstrClassName = "AcadLoopEdge";
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SecEntities
+	public class SecEntities
 	{
 		public delegate void ReadAddEntryEventHandler(int AddEntry);
 

@@ -12,7 +12,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-	public class Acad3DPolylineDictionary
+	public class Acad3DPolylineDictionary : NodeObject
 	{
 		private const string cstrClassName = "Acad3DPolylineDictionary";
 

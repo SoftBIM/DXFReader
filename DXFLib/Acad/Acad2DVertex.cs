@@ -213,7 +213,7 @@ namespace DXFLib.Acad
 		~Acad2DVertex()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

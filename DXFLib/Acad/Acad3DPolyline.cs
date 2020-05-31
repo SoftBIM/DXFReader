@@ -11,7 +11,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-	class Acad3DPolyline : AcadCurve
+	public class Acad3DPolyline : AcadCurve
 	{
 		private const string cstrClassName = "Acad3DPolyline";
 

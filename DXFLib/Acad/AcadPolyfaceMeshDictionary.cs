@@ -9,7 +9,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-    public class AcadPolyfaceMeshDictionary : NodeObject
+	public class AcadPolyfaceMeshDictionary : NodeObject
 	{
 		private const string cstrClassName = "AcadPolyfaceMeshDictionary";
 

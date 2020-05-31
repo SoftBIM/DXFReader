@@ -10,7 +10,7 @@ using Microsoft.VisualBasic;
 
 namespace DXFLib.Acad
 {
-    public class AcadSolid : AcadEntity
+	public class AcadSolid : AcadEntity
 	{
 		private const string cstrClassName = "AcadSolid";
 

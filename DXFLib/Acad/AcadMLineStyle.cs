@@ -9,7 +9,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-    class AcadMLineStyle : AcadObject
+	class AcadMLineStyle : AcadObject
 	{
 		private const string cstrClassName = "AcadMLineStyle";
 
