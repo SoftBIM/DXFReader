@@ -119,7 +119,7 @@ namespace DXFLib.Acad
 		private ReadEndEventHandler ReadEndEvent;
 
 		[field: AccessedThroughProperty("mobjAcadDocuments")]
-		private virtual AcadDocuments mobjAcadDocuments
+		private AcadDocuments mobjAcadDocuments
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]

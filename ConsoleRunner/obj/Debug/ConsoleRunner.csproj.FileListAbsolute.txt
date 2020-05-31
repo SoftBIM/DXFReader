@@ -1,6 +1,0 @@
-C:\Temp\DXFReader\ConsoleRunner\bin\Debug\ConsoleRunner.exe.config
-C:\Temp\DXFReader\ConsoleRunner\bin\Debug\ConsoleRunner.exe
-C:\Temp\DXFReader\ConsoleRunner\bin\Debug\ConsoleRunner.pdb
-C:\Temp\DXFReader\ConsoleRunner\obj\Debug\ConsoleRunner.csprojAssemblyReference.cache
-C:\Temp\DXFReader\ConsoleRunner\obj\Debug\ConsoleRunner.exe
-C:\Temp\DXFReader\ConsoleRunner\obj\Debug\ConsoleRunner.pdb

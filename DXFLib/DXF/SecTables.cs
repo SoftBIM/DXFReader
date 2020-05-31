@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SecTables
+	public class SecTables
 	{
 		public delegate void ReadAddEntryEventHandler(int AddEntry);
 

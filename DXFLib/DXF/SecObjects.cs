@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SecObjects
+	public class SecObjects
 	{
 		public delegate void ReadAddEntryEventHandler(int AddEntry);
 

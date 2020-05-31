@@ -59,7 +59,7 @@ namespace DXFLib.Acad
 		private ReadEndEventHandler ReadEndEvent;
 
 		[field: AccessedThroughProperty("mobjDXFFile")]
-		private virtual File mobjDXFFile
+		private File mobjDXFFile
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]

@@ -1,14 +1,20 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using DXFLib.Basic;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class File
+	public class File
 	{
 		private enum DXFCODETYPE
 		{
@@ -114,7 +120,7 @@ namespace DXFLib.DXF
 		private ReadEndEventHandler ReadEndEvent;
 
 		[field: AccessedThroughProperty("mobjSecBlocks")]
-		private virtual SecBlocks mobjSecBlocks
+		private SecBlocks mobjSecBlocks
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -122,7 +128,7 @@ namespace DXFLib.DXF
 		}
 
 		[field: AccessedThroughProperty("mobjSecClasses")]
-		private virtual SecClasses mobjSecClasses
+		private SecClasses mobjSecClasses
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -130,7 +136,7 @@ namespace DXFLib.DXF
 		}
 
 		[field: AccessedThroughProperty("mobjSecEntities")]
-		private virtual SecEntities mobjSecEntities
+		private SecEntities mobjSecEntities
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -138,7 +144,7 @@ namespace DXFLib.DXF
 		}
 
 		[field: AccessedThroughProperty("mobjSecHeader")]
-		private virtual SecHeader mobjSecHeader
+		private SecHeader mobjSecHeader
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -146,7 +152,7 @@ namespace DXFLib.DXF
 		}
 
 		[field: AccessedThroughProperty("mobjSecObjects")]
-		private virtual SecObjects mobjSecObjects
+		private SecObjects mobjSecObjects
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -154,7 +160,7 @@ namespace DXFLib.DXF
 		}
 
 		[field: AccessedThroughProperty("mobjSecTables")]
-		private virtual SecTables mobjSecTables
+		private SecTables mobjSecTables
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -162,7 +168,7 @@ namespace DXFLib.DXF
 		}
 
 		[field: AccessedThroughProperty("mobjSecThumbnail")]
-		private virtual SecThumbnail mobjSecThumbnail
+		private SecThumbnail mobjSecThumbnail
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -342,7 +348,7 @@ namespace DXFLib.DXF
 		~File()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -365,7 +371,7 @@ namespace DXFLib.DXF
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-		public bool ReadFile(string vstrFileName, ref string nrstrErrMsg = "")
+		public bool ReadFile(string vstrFileName, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			InternClear();
@@ -409,7 +415,7 @@ namespace DXFLib.DXF
 			InternListSections();
 		}
 
-		public bool WriteFile(string vstrFileName, ref string nrstrErrMsg = "")
+		public bool WriteFile(string vstrFileName, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (!InternIsValidFileName(vstrFileName))
@@ -500,7 +506,7 @@ namespace DXFLib.DXF
 			return LikeOperator.LikeString(Strings.UCase(vstrFileName), Strings.UCase("*.dxf"), CompareMethod.Binary);
 		}
 
-		private bool InternReadFile(string vstrFileName, ref string nrstrErrMsg = "")
+		private bool InternReadFile(string vstrFileName, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			try
@@ -557,7 +563,7 @@ namespace DXFLib.DXF
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-		private bool InternWriteFile(string vstrFileName, ref string nrstrErrMsg = "")
+		private bool InternWriteFile(string vstrFileName, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx2 = 0;
@@ -624,7 +630,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternAddLineToDict(ref bool rblnCode, ref int rlngCount, string vstrLine, ref string nrstrErrMsg = "")
+		private bool InternAddLineToDict(ref bool rblnCode, ref int rlngCount, string vstrLine, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			vstrLine = Strings.Trim(vstrLine);
@@ -1393,7 +1399,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternGetSections(ref string nrstrErrMsg = "")
+		private bool InternGetSections(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngCount = 1;
@@ -1434,7 +1440,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternCreateSection(int vlngIdx, string vstrBracket, ref bool rblnStart, ref int rlngCount, ref string nrstrErrMsg = "")
+		private bool InternCreateSection(int vlngIdx, string vstrBracket, ref bool rblnStart, ref int rlngCount, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -1627,7 +1633,7 @@ namespace DXFLib.DXF
 			mobjSecThumbnail.SecEnd = vlngSecEnd;
 		}
 
-		private bool InternCheckSections(ref string nrstrErrMsg = "")
+		private bool InternCheckSections(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (mobjSecHeader == null)
@@ -1662,7 +1668,7 @@ namespace DXFLib.DXF
 			return InternCheckSections;
 		}
 
-		private bool InternReadSections(ref string nrstrErrMsg = "")
+		private bool InternReadSections(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			ReadStartEvent?.Invoke(mlngEntries);

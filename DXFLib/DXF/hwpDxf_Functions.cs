@@ -1,13 +1,14 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class hwpDxf_Functions
+	public class hwpDxf_Functions
 	{
 		private const short clngErrNumOverflow = 6;
 

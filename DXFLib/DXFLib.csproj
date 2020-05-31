@@ -207,6 +207,7 @@
     <Compile Include="Acad\NodeObject.cs" />
     <Compile Include="Acad\NodeObjects.cs" />
     <Compile Include="Acad\UpgradeSupport.cs" />
+    <Compile Include="Basic\ExceptionHelper.cs" />
     <Compile Include="DXF\File.cs" />
     <Compile Include="DXF\hwpDxf_ConstGrp.cs" />
     <Compile Include="DXF\hwpDxf_ConstMisc.cs" />

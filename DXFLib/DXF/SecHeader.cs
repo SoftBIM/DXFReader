@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SecHeader
+	public class SecHeader
 	{
 		public delegate void ReadAddEntryEventHandler(int AddEntry);
 
@@ -135,7 +136,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
