@@ -12,7 +12,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-	public class AcadXData :NodeObject
+	public class AcadXData : NodeObject
 	{
 		private const string cstrClassName = "AcadXData";
 
