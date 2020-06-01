@@ -202,7 +202,6 @@
     <Compile Include="Acad\Enums.cs" />
     <Compile Include="Acad\hwpDxf_AcadEntity.cs" />
     <Compile Include="Acad\hwpDxf_AcadObject.cs" />
-    <Compile Include="Acad\hwpDxf_Enums.cs" />
     <Compile Include="Acad\hwpDxf_Init.cs" />
     <Compile Include="Acad\hwpDxf_Vars.cs" />
     <Compile Include="Acad\NodeObject.cs" />

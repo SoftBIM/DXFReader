@@ -1,14 +1,20 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Compatibility.VB6;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class hwpDxf_ReadEnt
+	public class hwpDxf_ReadEnt
 	{
-		public static bool BkDXFReadEnt_CheckBlockAsOwner(AcadDatabase vobjAcadDatabase, ref AcadBlock robjAcadBlock, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_CheckBlockAsOwner(AcadDatabase vobjAcadDatabase, ref AcadBlock robjAcadBlock, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool dblnError = default(bool);
@@ -47,7 +53,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_CheckBlockAsOwner;
 		}
 
-		public static bool BkDXFReadEnt_CheckPolylineAsOwner(AcadDatabase vobjAcadDatabase, ref AcadPolyline robjAcadPolyline, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_CheckPolylineAsOwner(AcadDatabase vobjAcadDatabase, ref AcadPolyline robjAcadPolyline, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool dblnError = default(bool);
@@ -86,7 +92,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_CheckPolylineAsOwner;
 		}
 
-		public static bool BkDXFReadEnt_Check3DPolylineAsOwner(AcadDatabase vobjAcadDatabase, ref Acad3DPolyline robjAcad3DPolyline, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_Check3DPolylineAsOwner(AcadDatabase vobjAcadDatabase, ref Acad3DPolyline robjAcad3DPolyline, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool dblnError = default(bool);
@@ -125,7 +131,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_Check3DPolylineAsOwner;
 		}
 
-		public static bool BkDXFReadEnt_CheckPolygonMeshAsOwner(AcadDatabase vobjAcadDatabase, ref AcadPolygonMesh robjAcadPolygonMesh, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_CheckPolygonMeshAsOwner(AcadDatabase vobjAcadDatabase, ref AcadPolygonMesh robjAcadPolygonMesh, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool dblnError = default(bool);
@@ -164,7 +170,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_CheckPolygonMeshAsOwner;
 		}
 
-		public static bool BkDXFReadEnt_CheckPolyfaceMeshAsOwner(AcadDatabase vobjAcadDatabase, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_CheckPolyfaceMeshAsOwner(AcadDatabase vobjAcadDatabase, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, double vdblOwnerID, double vdblLineOwnerID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool dblnError = default(bool);
@@ -203,7 +209,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_CheckPolyfaceMeshAsOwner;
 		}
 
-		public static bool BkDXFReadEnt_AcadCircle(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadCircle(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] davarCenter = new object[3];
 			object[] dadecNormal = new object[3];
@@ -310,7 +316,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_AcadCircle;
 		}
 
-		public static bool BkDXFReadEnt_AcadArc(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadArc(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] davarCenter = new object[3];
 			object[] dadecNormal = new object[3];
@@ -446,7 +452,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadLine(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadLine(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecStartPoint = new object[3];
 			double[] dadblStartPoint = new double[3];
@@ -621,7 +627,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadPoint(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadPoint(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecCoordinate = new object[3];
 			double[] dadblCoordinate = new double[3];
@@ -776,7 +782,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadXline(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadXline(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecBasePoint = new object[3];
 			double[] dadblBasePoint = new double[3];
@@ -899,7 +905,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadRay(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadRay(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecBasePoint = new object[3];
 			double[] dadblBasePoint = new double[3];
@@ -1022,7 +1028,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadLWPolyline(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadLWPolyline(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecNormal = new object[3];
 			double[] dadblNormal = new double[3];
@@ -1273,7 +1279,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadPolyline(ref AcadPolyline robjAcadPolyline, ref Acad3DPolyline robjAcad3DPolyline, ref AcadPolygonMesh robjAcadPolygonMesh, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadPolyline(ref AcadPolyline robjAcadPolyline, ref Acad3DPolyline robjAcad3DPolyline, ref AcadPolygonMesh robjAcadPolygonMesh, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecNormal = new object[3];
 			double[] dadblNormal = new double[3];
@@ -1744,7 +1750,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadVertex(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadPolyline robjAcadPolyline, ref Acad3DPolyline robjAcad3DPolyline, ref AcadPolygonMesh robjAcadPolygonMesh, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadVertex(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadPolyline robjAcadPolyline, ref Acad3DPolyline robjAcad3DPolyline, ref AcadPolygonMesh robjAcadPolygonMesh, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecCoordinate = new object[3];
 			double[] dadblCoordinate = new double[3];
@@ -2239,7 +2245,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadMText(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadMText(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecInsertionPoint = new object[3];
 			double[] dadblInsertionPoint = new double[3];
@@ -2619,7 +2625,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadText(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadText(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] davarInsertionPoint2 = new object[3];
 			object[] davarTextAlignmentPoint2 = new object[3];
@@ -2744,7 +2750,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadAttributeDefinition(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadAttributeDefinition(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] davarInsertionPoint2 = new object[3];
 			object[] davarTextAlignmentPoint2 = new object[3];
@@ -2902,7 +2908,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadBlockReference(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadBlockReference(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecInsertionPoint = new object[3];
 			double[] dadblInsertionPoint = new double[3];
@@ -3207,7 +3213,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadBlockRefAttributes(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlockReference robjAcadBlockReference, ref AcadMInsertBlock robjAcadMInsertBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadBlockRefAttributes(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlockReference robjAcadBlockReference, ref AcadMInsertBlock robjAcadMInsertBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			bool dblnStop = default(bool);
 			bool dblnError = default(bool);
@@ -3248,7 +3254,7 @@ namespace DXFLib.DXF
 			return !dblnError;
 		}
 
-		public static bool BkDXFReadEnt_AcadAttributeReference(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlockReference robjAcadBlockReference, ref AcadMInsertBlock robjAcadMInsertBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadAttributeReference(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlockReference robjAcadBlockReference, ref AcadMInsertBlock robjAcadMInsertBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] davarInsertionPoint2 = new object[3];
 			object[] davarTextAlignmentPoint2 = new object[3];
@@ -3411,7 +3417,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadSequenceEnd(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlockReference robjAcadBlockReference, ref AcadMInsertBlock robjAcadMInsertBlock, ref AcadPolyline robjAcadPolyline, ref Acad3DPolyline robjAcad3DPolyline, ref AcadPolygonMesh robjAcadPolygonMesh, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadSequenceEnd(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlockReference robjAcadBlockReference, ref AcadMInsertBlock robjAcadMInsertBlock, ref AcadPolyline robjAcadPolyline, ref Acad3DPolyline robjAcad3DPolyline, ref AcadPolygonMesh robjAcadPolygonMesh, ref AcadPolyfaceMesh robjAcadPolyfaceMesh, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (robjAcadPolyfaceMesh != null)
@@ -3505,7 +3511,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_AcadSequenceEnd;
 		}
 
-		public static bool BkDXFReadEnt_AcadShape(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadShape(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecInsertionPoint = new object[3];
 			double[] dadblInsertionPoint = new double[3];
@@ -3713,7 +3719,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadEllipse(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadEllipse(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecCenter = new object[3];
 			double[] dadblCenter = new double[3];
@@ -3897,7 +3903,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadHatch(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadHatch(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecElevation = new object[3];
 			double[] dadblElevation = new double[3];
@@ -4399,7 +4405,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchLoops(ref int rlngIdx, ref AcadHatch robjAcadHatch, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchLoops(ref int rlngIdx, ref AcadHatch robjAcadHatch, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			AcadLoops dobjAcadLoops2 = robjAcadHatch.Loops;
@@ -4423,7 +4429,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_AcadHatchLoops;
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchLoop(ref int rlngIdx, ref AcadLoops robjAcadLoops, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchLoop(ref int rlngIdx, ref AcadLoops robjAcadLoops, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -4531,7 +4537,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchLoopEdges(ref int rlngIdx, ref AcadLoop robjAcadLoop, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchLoopEdges(ref int rlngIdx, ref AcadLoop robjAcadLoop, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			AcadLoopEdges dobjAcadLoopEdges2 = robjAcadLoop.FriendAddLoopEdges();
@@ -4555,7 +4561,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_AcadHatchLoopEdges;
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchLoopEdge(ref int rlngIdx, ref AcadLoopEdges robjAcadLoopEdges, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchLoopEdge(ref int rlngIdx, ref AcadLoopEdges robjAcadLoopEdges, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -4601,7 +4607,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcGePolyline2d(ref int rlngIdx, ref AcadLoop robjAcadLoop, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcGePolyline2d(ref int rlngIdx, ref AcadLoop robjAcadLoop, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -4681,7 +4687,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcGeLinSeg2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcGeLinSeg2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecStartPoint = new object[2];
 			double[] dadblStartPoint = new double[2];
@@ -4733,7 +4739,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcGeCircArc2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcGeCircArc2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecCenter = new object[2];
 			double[] dadblCenter = new double[2];
@@ -4799,7 +4805,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcGeEllipArc2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcGeEllipArc2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecCenter = new object[2];
 			double[] dadblCenter = new double[2];
@@ -4880,7 +4886,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcGeNurbCurve2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcGeNurbCurve2d(ref int rlngIdx, ref AcadLoopEdge robjAcadLoopEdge, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -4994,7 +5000,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchPatternDefinitions(ref int rlngIdx, ref AcadHatch robjAcadHatch, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchPatternDefinitions(ref int rlngIdx, ref AcadHatch robjAcadHatch, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			AcadPatternDefinitions dobjAcadPatternDefinitions2 = robjAcadHatch.FriendAddPatternDefinitions();
@@ -5018,7 +5024,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_AcadHatchPatternDefinitions;
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchPatternDefinition(ref int rlngIdx, ref AcadPatternDefinitions robjAcadPatternDefinitions, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchPatternDefinition(ref int rlngIdx, ref AcadPatternDefinitions robjAcadPatternDefinitions, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -5096,7 +5102,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchPatternDefDashes(ref int rlngIdx, ref AcadPatternDefinition robjAcadPatternDefinition, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchPatternDefDashes(ref int rlngIdx, ref AcadPatternDefinition robjAcadPatternDefinition, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			AcadPatternDefDashes dobjAcadPatternDefDashes2 = robjAcadPatternDefinition.Dashes;
@@ -5120,7 +5126,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_AcadHatchPatternDefDashes;
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchPatternDefDash(ref int rlngIdx, ref AcadPatternDefDashes robjAcadPatternDefDashes, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchPatternDefDash(ref int rlngIdx, ref AcadPatternDefDashes robjAcadPatternDefDashes, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -5149,7 +5155,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchSeedPoints(ref int rlngIdx, ref AcadHatch robjAcadHatch, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchSeedPoints(ref int rlngIdx, ref AcadHatch robjAcadHatch, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			AcadSeedPoints dobjAcadSeedPoints2 = robjAcadHatch.FriendAddSeedPoints();
@@ -5173,7 +5179,7 @@ namespace DXFLib.DXF
 			return BkDXFReadEnt_AcadHatchSeedPoints;
 		}
 
-		private static bool BkDXFReadEnt_AcadHatchSeedPoint(ref int rlngIdx, ref AcadSeedPoints robjAcadSeedPoints, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		private static bool BkDXFReadEnt_AcadHatchSeedPoint(ref int rlngIdx, ref AcadSeedPoints robjAcadSeedPoints, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -5209,7 +5215,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadSpline(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadSpline(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecNormal = new object[3];
 			double[] dadblNormal = new double[3];
@@ -5655,7 +5661,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadUnknownEnt(int vlngSecEnd, string vstrDXFName, AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadUnknownEnt(int vlngSecEnd, string vstrDXFName, AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			Dictionary<object, object> dobjDictCodes2 = new Dictionary<object, object>();
@@ -5749,7 +5755,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadTrace(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadTrace(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecCoordinates = new object[12];
 			double[] dadblCoordinates = new double[12];
@@ -5955,7 +5961,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadEnt_AcadSolid(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadEnt_AcadSolid(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadBlock robjAcadBlock, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] dadecCoordinates = new object[12];
 			double[] dadblCoordinates = new double[12];

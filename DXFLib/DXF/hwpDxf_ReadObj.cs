@@ -1,6 +1,11 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Compatibility.VB6;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +13,7 @@ namespace DXFLib.DXF
 {
     public class hwpDxf_ReadObj
 	{
-		public static bool BkDXFReadObj_AcadNamedObjectDictionary(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadDatabase robjAcadDatabase, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadNamedObjectDictionary(AcadDatabase vobjAcadDatabase, ref int rlngIdx, ref AcadDatabase robjAcadDatabase, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			Dictionary<object, object> dobjDictReactors2 = new Dictionary<object, object>();
@@ -55,7 +60,7 @@ namespace DXFLib.DXF
 			return BkDXFReadObj_AcadNamedObjectDictionary;
 		}
 
-		public static bool BkDXFReadObj_AcadNamedObjectDictionaryElements(AcadDatabase vobjAcadDatabase, AcadDictionaries vobjAcadDictionaries, Dictionary<object, object> vobjDictEntryName, Dictionary<object, object> vobjDictEntryObjectID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadNamedObjectDictionaryElements(AcadDatabase vobjAcadDatabase, AcadDictionaries vobjAcadDictionaries, Dictionary<object, object> vobjDictEntryName, Dictionary<object, object> vobjDictEntryObjectID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			string dstrAcadVer = vobjAcadDatabase.Document.AcadVer;
@@ -170,7 +175,7 @@ namespace DXFLib.DXF
 			return BkDXFReadObj_AcadNamedObjectDictionaryElements;
 		}
 
-		public static bool BkDXFReadObj_AcadDictionary(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, bool vblnWithDefault, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadDictionary(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, bool vblnWithDefault, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;
@@ -305,7 +310,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadObj_AcadDictionaryElements(AcadDatabase vobjAcadDatabase, ref AcadDictionary robjAcadDictionary, Dictionary<object, object> vobjDictEntryName, Dictionary<object, object> vobjDictEntryObjectID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadDictionaryElements(AcadDatabase vobjAcadDatabase, ref AcadDictionary robjAcadDictionary, Dictionary<object, object> vobjDictEntryName, Dictionary<object, object> vobjDictEntryObjectID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			string dstrAcadVer = vobjAcadDatabase.Document.AcadVer;
@@ -601,7 +606,7 @@ namespace DXFLib.DXF
 			dobjAcadGroups2 = null;
 		}
 
-		public static bool BkDXFReadObj_AcadPlaceholder(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, AcadDictionaryWithDefault vobjAcadPlotStyleNames, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadPlaceholder(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, AcadDictionaryWithDefault vobjAcadPlotStyleNames, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;
@@ -648,7 +653,7 @@ namespace DXFLib.DXF
 			return BkDXFReadObj_AcadPlaceholder;
 		}
 
-		public static bool BkDXFReadObj_AcadLayout(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadLayouts robjAcadLayouts, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadLayout(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadLayouts robjAcadLayouts, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			object[] davarPaperMarginLowerLeft = new object[2];
 			object[] davarPaperMarginUpperRight = new object[2];
@@ -1000,7 +1005,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadObj_AcadMLineStyle(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadMLineStyles robjAcadMLineStyles, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadMLineStyle(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadMLineStyles robjAcadMLineStyles, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;
@@ -1165,7 +1170,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadObj_AcadGroup(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadGroups robjAcadGroups, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadGroup(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadGroups robjAcadGroups, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;
@@ -1296,7 +1301,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadObj_AcadMaterial(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadMaterials robjAcadMaterials, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadMaterial(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, ref AcadMaterials robjAcadMaterials, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;
@@ -1350,7 +1355,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadObj_AcadDictionaryVar(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, AcadDictionary vobjAcadDictionary, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadDictionaryVar(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, ref int rlngIdx, AcadDictionary vobjAcadDictionary, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;
@@ -1426,7 +1431,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadObj_AcadDictionaryEntry(int vlngSecEnd, string vstrDXFName, AcadDatabase vobjAcadDatabase, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadDictionaryEntry(int vlngSecEnd, string vstrDXFName, AcadDatabase vobjAcadDatabase, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;
@@ -1599,7 +1604,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadObj_AcadObjectPointer(int vlngSecEnd, string vstrDXFName, AcadDatabase vobjAcadDatabase, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadObj_AcadObjectPointer(int vlngSecEnd, string vstrDXFName, AcadDatabase vobjAcadDatabase, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngStartIndex = rlngIdx;

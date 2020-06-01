@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class hwpDxf_ReadRef
+	public class hwpDxf_ReadRef
 	{
-		public static bool BkDXFReadRef_AcadObject(AcadDatabase vobjAcadDatabase, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref double rdblLineOwnerID, ref Dictionary<object, object> robjDictReactors, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg = "", bool nvblnDoNotCheckObjectID = false)
+		public static bool BkDXFReadRef_AcadObject(AcadDatabase vobjAcadDatabase, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref double rdblLineOwnerID, ref Dictionary<object, object> robjDictReactors, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg, bool nvblnDoNotCheckObjectID = false)
 		{
 			nrstrErrMsg = null;
 			robjDictReactors.Clear();
@@ -89,7 +91,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadRef_AcadEntity(string vstrAcadVer, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref int rlngPaperSpace, ref string rstrLayer, ref string rstrLinetype, ref int rlngColor, ref object rvarLinetypeScale, ref int rlngVisible, ref int rlngRGB, ref Enums.AcLineWeight rnumLineweight, ref string rstrPlotStyleNameReference, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadRef_AcadEntity(string vstrAcadVer, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref int rlngPaperSpace, ref string rstrLayer, ref string rstrLinetype, ref int rlngColor, ref object rvarLinetypeScale, ref int rlngVisible, ref int rlngRGB, ref Enums.AcLineWeight rnumLineweight, ref string rstrPlotStyleNameReference, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -254,7 +256,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadRef_AcadSymbolTable(AcadDatabase vobjAcadDatabase, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref int rlngCount, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadRef_AcadSymbolTable(AcadDatabase vobjAcadDatabase, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref int rlngCount, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -329,7 +331,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadRef_AcadSymbolTableRecord(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, string vstrDXFName, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref Dictionary<object, object> robjDictReactors, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadRef_AcadSymbolTableRecord(AcadDatabase vobjAcadDatabase, double vdblDefOwnerID, string vstrDXFName, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref Dictionary<object, object> robjDictReactors, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngGrpHandle = (Operators.CompareString(vstrDXFName, "DIMSTYLE", TextCompare: false) != 0) ? 5 : 105;
@@ -424,7 +426,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadRef_AcadDictionary(Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref int rlngTreatElementsAsHard, ref int rlngMergeStyle, ref Dictionary<object, object> robjDictEntryName, ref Dictionary<object, object> robjDictEntryObjectID, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadRef_AcadDictionary(Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref int rlngTreatElementsAsHard, ref int rlngMergeStyle, ref Dictionary<object, object> robjDictEntryName, ref Dictionary<object, object> robjDictEntryObjectID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjDictEntryName.Clear();
@@ -487,7 +489,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadRef_AcadPlotConfiguration(string vstrAcadVer, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref string rstrPlotSettingsName, ref string rstrConfigName, ref string rstrCanonicalMediaName, ref string rstrViewToPlot, ref object[] ravarPaperMarginLowerLeft, ref object[] ravarPaperMarginUpperRight, ref object rvarPaperWidth, ref object rvarPaperHeight, ref object[] ravarPlotOrigin, ref object[] ravarWindowToPlotLowerLeft, ref object[] ravarWindowToPlotUpperRight, ref object rvarCustomScaleNumerator, ref object rvarCustomScaleDenominator, ref int rlngPlotCode70, ref int rlngPaperUnits, ref int rlngPlotRotation, ref int rlngPlotType, ref string rstrStyleSheet, ref int rlngStandardScale, ref object rvarScaleFactor, ref int rlngShadePlotMode, ref int rlngShadePlotResolutionLevel, ref int rlngShadePlotCustomDPI, ref object[] ravarPaperImageOrigin, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadRef_AcadPlotConfiguration(string vstrAcadVer, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref string rstrPlotSettingsName, ref string rstrConfigName, ref string rstrCanonicalMediaName, ref string rstrViewToPlot, ref object[] ravarPaperMarginLowerLeft, ref object[] ravarPaperMarginUpperRight, ref object rvarPaperWidth, ref object rvarPaperHeight, ref object[] ravarPlotOrigin, ref object[] ravarWindowToPlotLowerLeft, ref object[] ravarWindowToPlotUpperRight, ref object rvarCustomScaleNumerator, ref object rvarCustomScaleDenominator, ref int rlngPlotCode70, ref int rlngPaperUnits, ref int rlngPlotRotation, ref int rlngPlotType, ref string rstrStyleSheet, ref int rlngStandardScale, ref object rvarScaleFactor, ref int rlngShadePlotMode, ref int rlngShadePlotResolutionLevel, ref int rlngShadePlotCustomDPI, ref object[] ravarPaperImageOrigin, ref string nrstrErrMsg)
 		{
 			object[] dadecPaperMarginLowerLeft = new object[2];
 			double[] dadblPaperMarginLowerLeft = new double[2];
@@ -743,7 +745,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadRef_AcadCircle(Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref object rvarThickness, ref object[] ravarCenter, ref object rvarRadius, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadRef_AcadCircle(Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref object rvarThickness, ref object[] ravarCenter, ref object rvarRadius, ref string nrstrErrMsg)
 		{
 			object[] dadecCenter = new object[3];
 			double[] dadblCenter = new double[3];
@@ -816,7 +818,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadRef_AcadText(Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref object rvarThickness, ref object ravarInsertionPoint, ref object rvarHeight, ref string rstrTextString, ref object rvarRotationDegree, ref object rvarScaleFactor, ref object rvarObliqueAngleDegree, ref string rstrTextStyle, ref int rlngTextGenerationFlag, ref int rlngHorizontalAlignment, ref object ravarTextAlignmentPoint, ref object ravarNormal, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadRef_AcadText(Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref int rlngIdx, ref object rvarThickness, ref object ravarInsertionPoint, ref object rvarHeight, ref string rstrTextString, ref object rvarRotationDegree, ref object rvarScaleFactor, ref object rvarObliqueAngleDegree, ref string rstrTextStyle, ref int rlngTextGenerationFlag, ref int rlngHorizontalAlignment, ref object ravarTextAlignmentPoint, ref object ravarNormal, ref string nrstrErrMsg)
 		{
 			object[] dadecInsertionPoint = new object[3];
 			double[] dadblInsertionPoint = new double[3];

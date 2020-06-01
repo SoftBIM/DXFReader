@@ -1,15 +1,17 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class hwpDxf_ReadBas
+	public class hwpDxf_ReadBas
 	{
-		public static bool BkDXFReadBas_Bracket(string vstrBracketName, object vvarGrpCodes, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictBracket, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadBas_Bracket(string vstrBracketName, object vvarGrpCodes, ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictBracket, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjDictBracket.Clear();
@@ -84,7 +86,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadBas_Reactors(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictReactors, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadBas_Reactors(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictReactors, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjDictReactors.Clear();
@@ -94,7 +96,7 @@ namespace DXFLib.DXF
 			}, ref rlngIdx, vobjDictReadCodes, vobjDictReadValues, ref robjDictReactors, ref nrstrErrMsg);
 		}
 
-		public static bool BkDXFReadBas_XDictionary(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadBas_XDictionary(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictXDictionary, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjDictXDictionary.Clear();
@@ -104,7 +106,7 @@ namespace DXFLib.DXF
 			}, ref rlngIdx, vobjDictReadCodes, vobjDictReadValues, ref robjDictXDictionary, ref nrstrErrMsg);
 		}
 
-		public static bool BkDXFReadBas_Blkrefs(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictBlockrefs, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadBas_Blkrefs(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref Dictionary<object, object> robjDictBlockrefs, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjDictBlockrefs.Clear();
@@ -133,7 +135,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFReadBas_XData(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref object rvarXDataType, ref object rvarXDataValue, ref string nrstrErrMsg = "")
+		public static bool BkDXFReadBas_XData(ref int rlngIdx, Dictionary<object, object> vobjDictReadCodes, Dictionary<object, object> vobjDictReadValues, ref object rvarXDataType, ref object rvarXDataValue, ref string nrstrErrMsg)
 		{
 			object[] dadecArrayValue = new object[3];
 			double[] dadblArrayValue = new double[3];
