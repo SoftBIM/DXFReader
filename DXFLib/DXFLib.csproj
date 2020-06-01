@@ -219,7 +219,6 @@
     <Compile Include="DXF\hwpDxf_Enums.cs" />
     <Compile Include="DXF\hwpDxf_Functions.cs" />
     <Compile Include="DXF\hwpDxf_List.cs" />
-    <Compile Include="DXF\hwpDxf_Printer.cs" />
     <Compile Include="DXF\hwpDxf_ReadBas.cs" />
     <Compile Include="DXF\hwpDxf_ReadEnt.cs" />
     <Compile Include="DXF\hwpDxf_ReadObj.cs" />
