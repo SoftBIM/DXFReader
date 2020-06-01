@@ -1,8 +1,12 @@
 ﻿using DXFLib.Acad;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
@@ -129,7 +133,7 @@ namespace DXFLib.DXF
 		~SecTables()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -195,7 +199,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -236,7 +240,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadSection(ref string nrstrErrMsg = "")
+		private bool InternReadSection(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			mobjTableAppid = null;
@@ -264,7 +268,7 @@ namespace DXFLib.DXF
 			return !dblnError;
 		}
 
-		private bool InternGetTables(ref string nrstrErrMsg = "")
+		private bool InternGetTables(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngCount = 1;
@@ -467,7 +471,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternCheckTables(ref string nrstrErrMsg = "")
+		private bool InternCheckTables(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (mobjTableVPort == null)
@@ -514,7 +518,7 @@ namespace DXFLib.DXF
 			return InternCheckTables;
 		}
 
-		private bool InternReadTables(ref string nrstrErrMsg = "")
+		private bool InternReadTables(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			mobjTableVPort.Init(ref mobjAcadDatabase, ref mobjDictReadCodes, ref mobjDictReadValues);

@@ -1,11 +1,14 @@
 ﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
@@ -116,7 +119,7 @@ namespace DXFLib.DXF
 		~SecObjects()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -139,7 +142,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -184,7 +187,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadSection(ref string nrstrErrMsg = "")
+		private bool InternReadSection(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = mlngSecBeg;
@@ -212,7 +215,7 @@ namespace DXFLib.DXF
 			return !dblnError;
 		}
 
-		private bool InternReadDictionaries(ref int rlngIdx, ref string nrstrErrMsg = "")
+		private bool InternReadDictionaries(ref int rlngIdx, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool dblnError = default(bool);

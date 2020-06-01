@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    class TableUCS
+	class TableUCS
 	{
 		private const string cstrClassName = "TableUCS";
 
@@ -73,7 +76,7 @@ namespace DXFLib.DXF
 		~TableUCS()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -95,7 +98,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			return InternReadTable(ref nrstrErrMsg);
@@ -126,7 +129,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadTable(ref string nrstrErrMsg = "")
+		private bool InternReadTable(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = checked(mlngTblBeg + 1);
@@ -180,7 +183,7 @@ namespace DXFLib.DXF
 			return InternReadTable;
 		}
 
-		private bool InternReadUCS(double vdblDefOwnerID, ref int rlngIdx, ref AcadUCSs robjAcadUCSs, ref string nrstrErrMsg = "")
+		private bool InternReadUCS(double vdblDefOwnerID, ref int rlngIdx, ref AcadUCSs robjAcadUCSs, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			Dictionary<object, object> dobjDictReactors2 = new Dictionary<object, object>();

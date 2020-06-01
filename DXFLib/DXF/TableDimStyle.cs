@@ -1,12 +1,17 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class TableDimStyle
+	public class TableDimStyle
 	{
 		private const string cstrClassName = "TableDimStyle";
 
@@ -72,7 +77,7 @@ namespace DXFLib.DXF
 		~TableDimStyle()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -94,7 +99,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			return InternReadTable(ref nrstrErrMsg);
@@ -142,7 +147,7 @@ namespace DXFLib.DXF
 			InternAddToDictLine(ref rlngIdx, 0, "ENDTAB");
 		}
 
-		private bool InternReadTable(ref string nrstrErrMsg = "")
+		private bool InternReadTable(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = checked(mlngTblBeg + 1);
@@ -209,7 +214,7 @@ namespace DXFLib.DXF
 			return InternReadTable;
 		}
 
-		private bool InternReadDimStyle(double vdblDefOwnerID, ref int rlngIdx, ref AcadDimStyles robjAcadDimStyles, ref string nrstrErrMsg = "")
+		private bool InternReadDimStyle(double vdblDefOwnerID, ref int rlngIdx, ref AcadDimStyles robjAcadDimStyles, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			Dictionary<object, object> dobjDictReactors2 = new Dictionary<object, object>();
@@ -385,7 +390,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternFindBlockNameByObjectID(double vdblObjectID, ref string rstrName, ref string nrstrErrMsg = "")
+		private bool InternFindBlockNameByObjectID(double vdblObjectID, ref string rstrName, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			rstrName = null;
@@ -441,7 +446,7 @@ namespace DXFLib.DXF
 			return InternFindTextStyleNameByObjectID;
 		}
 
-		private bool InternReadDimStyleTable(ref int rlngIdx, ref int rlngUnknown71, ref Dictionary<object, object> robjDictUnknown340, ref string nrstrErrMsg = "")
+		private bool InternReadDimStyleTable(ref int rlngIdx, ref int rlngUnknown71, ref Dictionary<object, object> robjDictUnknown340, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjDictUnknown340.Clear();

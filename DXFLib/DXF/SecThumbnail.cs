@@ -1,8 +1,11 @@
 ﻿using DXFLib.Acad;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
@@ -109,7 +112,7 @@ namespace DXFLib.DXF
 		~SecThumbnail()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -130,7 +133,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked
@@ -170,7 +173,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadSection(ref string nrstrErrMsg = "")
+		private bool InternReadSection(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			return true;

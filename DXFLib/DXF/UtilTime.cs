@@ -9,10 +9,13 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using DXFLib.Basic;
+using Microsoft.VisualBasic.Compatibility.VB6;
+using DXFLib.Acad;
 
 namespace DXFLib.DXF
 {
-    public class UtilTime
+	public class UtilTime
 	{
 		private struct SYSTEMTIME
 		{

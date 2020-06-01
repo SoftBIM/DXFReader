@@ -3,14 +3,16 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SecClasses
+	public class SecClasses
 	{
 		public delegate void ReadAddEntryEventHandler(int AddEntry);
 
@@ -120,7 +122,7 @@ namespace DXFLib.DXF
 		~SecClasses()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -143,7 +145,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			mobjAcadClasses = mobjAcadDatabase.Classes;
@@ -189,7 +191,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadSection(ref string nrstrErrMsg = "")
+		private bool InternReadSection(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = mlngSecBeg;
@@ -221,7 +223,7 @@ namespace DXFLib.DXF
 			return !dblnError;
 		}
 
-		private bool InternReadClass(ref int rlngIdx, ref string nrstrErrMsg = "")
+		private bool InternReadClass(ref int rlngIdx, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked

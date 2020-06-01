@@ -1,7 +1,11 @@
-﻿using Microsoft.VisualBasic;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SysVars
+	public class SysVars
 	{
 		private const string cstrClassName = "SysVars";
 
@@ -104,7 +108,7 @@ namespace DXFLib.DXF
 		~SysVars()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()

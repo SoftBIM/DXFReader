@@ -1,15 +1,19 @@
 ﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SecBlocks
+	public class SecBlocks
 	{
 		public delegate void ReadAddEntryEventHandler(int AddEntry);
 
@@ -115,7 +119,7 @@ namespace DXFLib.DXF
 		~SecBlocks()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -138,7 +142,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			mobjAcadBlocks = mobjAcadDatabase.Blocks;
 			nrstrErrMsg = null;
@@ -184,7 +188,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadSection(ref string nrstrErrMsg = "")
+		private bool InternReadSection(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = mlngSecBeg;
@@ -216,7 +220,7 @@ namespace DXFLib.DXF
 			return !dblnError;
 		}
 
-		private bool InternReadOneBlock(ref int rlngIdx, ref string nrstrErrMsg = "")
+		private bool InternReadOneBlock(ref int rlngIdx, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			Dictionary<object, object> dobjDictReactors = new Dictionary<object, object>();
@@ -270,7 +274,7 @@ namespace DXFLib.DXF
 			return InternReadOneBlock;
 		}
 
-		private bool InternAddAcadObjectBlockBegin(ref AcadBlock robjAcadBlock, double vdblObjectID, double vdblOwnerID, int vlngPaperSpace, string vstrLayer, string vstrLinetype, int vlngColor, object vvarLinetypeScale, int vlngVisible, int vlngRGB, Enums.AcLineWeight vnumLineweight, string vstrPlotStyleNameReference, Dictionary<object, object> vobjDictReactors, ref string nrstrErrMsg = "")
+		private bool InternAddAcadObjectBlockBegin(ref AcadBlock robjAcadBlock, double vdblObjectID, double vdblOwnerID, int vlngPaperSpace, string vstrLayer, string vstrLinetype, int vlngColor, object vvarLinetypeScale, int vlngVisible, int vlngRGB, Enums.AcLineWeight vnumLineweight, string vstrPlotStyleNameReference, Dictionary<object, object> vobjDictReactors, ref string nrstrErrMsg)
 		{
 			AcadBlockBegin dobjAcadBlockBegin2 = robjAcadBlock.FriendAddAcadObjectBlockBegin(vdblObjectID, nvblnWithoutObjectID: false, ref nrstrErrMsg);
 			bool InternAddAcadObjectBlockBegin = default(bool);
@@ -298,7 +302,7 @@ namespace DXFLib.DXF
 			return InternAddAcadObjectBlockBegin;
 		}
 
-		private bool InternAddAcadObjectBlockEnd(ref AcadBlock robjAcadBlock, double vdblObjectID, double vdblOwnerID, int vlngPaperSpace, string vstrLayer, string vstrLinetype, int vlngColor, object vvarLinetypeScale, int vlngVisible, int vlngRGB, Enums.AcLineWeight vnumLineweight, string vstrPlotStyleNameReference, Dictionary<object, object> vobjDictReactors, ref string nrstrErrMsg = "")
+		private bool InternAddAcadObjectBlockEnd(ref AcadBlock robjAcadBlock, double vdblObjectID, double vdblOwnerID, int vlngPaperSpace, string vstrLayer, string vstrLinetype, int vlngColor, object vvarLinetypeScale, int vlngVisible, int vlngRGB, Enums.AcLineWeight vnumLineweight, string vstrPlotStyleNameReference, Dictionary<object, object> vobjDictReactors, ref string nrstrErrMsg)
 		{
 			AcadBlockEnd dobjAcadBlockEnd2 = robjAcadBlock.FriendAddAcadObjectBlockEnd(vdblObjectID, nvblnWithoutObjectID: false, ref nrstrErrMsg);
 			bool InternAddAcadObjectBlockEnd = default(bool);
@@ -326,7 +330,7 @@ namespace DXFLib.DXF
 			return InternAddAcadObjectBlockEnd;
 		}
 
-		private bool InternReadBlockData(ref int rlngIdx, ref AcadBlock robjAcadBlock, ref string nrstrErrMsg = "")
+		private bool InternReadBlockData(ref int rlngIdx, ref AcadBlock robjAcadBlock, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjAcadBlock = null;
@@ -429,7 +433,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadBlockEntities(ref int rlngIdx, ref AcadBlock robjAcadBlock, ref string nrstrErrMsg = "")
+		private bool InternReadBlockEntities(ref int rlngIdx, ref AcadBlock robjAcadBlock, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			bool dblnError = default(bool);
@@ -600,7 +604,7 @@ namespace DXFLib.DXF
 			return InternReadBlockEntities;
 		}
 
-		private bool InternReadBlockBeginOrEnd(string vstrObjectName, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref int rlngPaperSpace, ref string rstrLayer, ref string rstrLinetype, ref int rlngColor, ref object rvarLinetypeScale, ref int rlngVisible, ref int rlngRGB, ref Enums.AcLineWeight rnumLineweight, ref string rstrPlotStyleNameReference, ref Dictionary<object, object> robjDictReactors, ref string nrstrErrMsg = "")
+		private bool InternReadBlockBeginOrEnd(string vstrObjectName, ref int rlngIdx, ref double rdblObjectID, ref double rdblOwnerID, ref int rlngPaperSpace, ref string rstrLayer, ref string rstrLinetype, ref int rlngColor, ref object rvarLinetypeScale, ref int rlngVisible, ref int rlngRGB, ref Enums.AcLineWeight rnumLineweight, ref string rstrPlotStyleNameReference, ref Dictionary<object, object> robjDictReactors, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjDictReactors.Clear();

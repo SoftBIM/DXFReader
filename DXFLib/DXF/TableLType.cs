@@ -1,12 +1,17 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class TableLType
+	public class TableLType
 	{
 		private const string cstrClassName = "TableLType";
 
@@ -72,7 +77,7 @@ namespace DXFLib.DXF
 		~TableLType()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -94,7 +99,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			return InternReadTable(ref nrstrErrMsg);
@@ -125,7 +130,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadTable(ref string nrstrErrMsg = "")
+		private bool InternReadTable(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = checked(mlngTblBeg + 1);
@@ -179,7 +184,7 @@ namespace DXFLib.DXF
 			return InternReadTable;
 		}
 
-		private bool InternReadLType(double vdblDefOwnerID, ref int rlngIdx, ref AcadLineTypes robjAcadLineTypes, ref string nrstrErrMsg = "")
+		private bool InternReadLType(double vdblDefOwnerID, ref int rlngIdx, ref AcadLineTypes robjAcadLineTypes, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			Dictionary<object, object> dobjDictReactors2 = new Dictionary<object, object>();
@@ -302,7 +307,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadDashes(ref int rlngIdx, ref AcadLineType robjAcadLineType, ref string nrstrErrMsg = "")
+		private bool InternReadDashes(ref int rlngIdx, ref AcadLineType robjAcadLineType, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			AcadLineTypeDashes dobjAcadLineTypeDashes = robjAcadLineType.Dashes;
@@ -331,7 +336,7 @@ namespace DXFLib.DXF
 			return InternReadDashes;
 		}
 
-		private bool InternReadDash(ref int rlngIdx, ref AcadLineTypeDashes robjAcadLineTypeDashes, ref string nrstrErrMsg = "")
+		private bool InternReadDash(ref int rlngIdx, ref AcadLineTypeDashes robjAcadLineTypeDashes, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = rlngIdx;

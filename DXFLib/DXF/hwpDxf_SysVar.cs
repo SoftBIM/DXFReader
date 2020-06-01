@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Compatibility.VB6;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    class hwpDxf_SysVar
+	class hwpDxf_SysVar
 	{
 		public static object BkDXFSysVar_ConvertValue(VariantType vnumVarType, object vvarValue)
 		{
@@ -135,7 +136,7 @@ namespace DXFLib.DXF
 			return dstrStringValue;
 		}
 
-		public static bool BkDXFSysVar_CheckType(string vstrVarName, VariantType vnumVarType, object vvarArraySize, object vvarValue, ref string rstrErrMsg = "")
+		public static bool BkDXFSysVar_CheckType(string vstrVarName, VariantType vnumVarType, object vvarArraySize, object vvarValue, ref string rstrErrMsg)
 		{
 			rstrErrMsg = null;
 			if (Information.VarType(RuntimeHelpers.GetObjectValue(vvarValue)) != vnumVarType && vnumVarType != VariantType.Char && vnumVarType != VariantType.Decimal && vnumVarType != VariantType.Short)

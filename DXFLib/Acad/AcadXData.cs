@@ -9,6 +9,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using Microsoft.VisualBasic.Compatibility.VB6;
 
 namespace DXFLib.Acad
 {
@@ -190,7 +191,7 @@ namespace DXFLib.Acad
 		~AcadXData()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -284,7 +285,7 @@ namespace DXFLib.Acad
 			}
 			else
 			{
-				if (!hwpDxf_XData.BkDXFXData_Check(RuntimeHelpers.GetObjectValue(vvarXDataType), RuntimeHelpers.GetObjectValue(vvarXDataValue), nvblnWithAppName: true, nvblnExtCoords: false, ref dstrErrMsg))
+				if (!hwpDxf_XData.BkDXFXData_Check(RuntimeHelpers.GetObjectValue(vvarXDataType), RuntimeHelpers.GetObjectValue(vvarXDataValue), ref dstrErrMsg, nvblnWithAppName: true, nvblnExtCoords: false))
 				{
 					goto IL_0328;
 				}

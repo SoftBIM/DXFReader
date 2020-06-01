@@ -771,7 +771,7 @@ namespace DXFLib.Acad
 		~AcadViewport()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendOpen()

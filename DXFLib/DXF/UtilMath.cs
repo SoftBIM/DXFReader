@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Compatibility.VB6;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class UtilMath
+	public class UtilMath
 	{
 		private const string cstrClassName = "UtilMath";
 

@@ -13,7 +13,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-	class AcadApplication : NodeObject
+	public class AcadApplication : NodeObject
 	{
 		public delegate void ActiveDocumentChangedEventHandler();
 
@@ -504,7 +504,7 @@ namespace DXFLib.Acad
 		~AcadApplication()
 		{
 			FriendQuit(nvblnTerminate: true);
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendOpen(string nvstrAcadVer = "AC1018")

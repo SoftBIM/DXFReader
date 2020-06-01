@@ -10,7 +10,7 @@ using Microsoft.VisualBasic;
 
 namespace DXFLib.Acad
 {
-    public class AcadTableRecord : AcadObject
+	public class AcadTableRecord : AcadObject
 	{
 		private const string cstrClassName = "AcadTableRecord";
 
@@ -62,7 +62,7 @@ namespace DXFLib.Acad
 		~AcadTableRecord()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

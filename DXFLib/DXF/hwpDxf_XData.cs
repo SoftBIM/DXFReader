@@ -11,7 +11,7 @@ namespace DXFLib.DXF
 {
 	public class hwpDxf_XData
 	{
-		public static bool BkDXFXData_IsArrayCode(short vintCode, ref short nrintNextCode = 0)
+		public static bool BkDXFXData_IsArrayCode(short vintCode, ref short nrintNextCode)
 		{
 			nrintNextCode = -1;
 			checked
@@ -335,7 +335,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		public static bool BkDXFXData_Check(object vvarXDataType, object vvarXDataValue, bool nvblnWithAppName = true, bool nvblnExtCoords = true, ref string nrstrErrMsg = "")
+		public static bool BkDXFXData_Check(object vvarXDataType, object vvarXDataValue, ref string nrstrErrMsg, bool nvblnWithAppName = true, bool nvblnExtCoords = true)
 		{
 			nrstrErrMsg = null;
 			if (((VariantType.Array & Information.VarType(RuntimeHelpers.GetObjectValue(vvarXDataType))) != VariantType.Array) | ((VariantType.Array & Information.VarType(RuntimeHelpers.GetObjectValue(vvarXDataValue))) != VariantType.Array))

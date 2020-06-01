@@ -1,12 +1,16 @@
-﻿using System;
+﻿using DXFLib.Acad;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    class TableStyle
+	class TableStyle
 	{
 		private const string cstrClassName = "TableStyle";
 
@@ -72,7 +76,7 @@ namespace DXFLib.DXF
 		~TableStyle()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -94,7 +98,7 @@ namespace DXFLib.DXF
 			mobjDictReadValues = robjDictReadValues;
 		}
 
-		public bool Read(ref string nrstrErrMsg = "")
+		public bool Read(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			return InternReadTable(ref nrstrErrMsg);
@@ -125,7 +129,7 @@ namespace DXFLib.DXF
 			}
 		}
 
-		private bool InternReadTable(ref string nrstrErrMsg = "")
+		private bool InternReadTable(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			int dlngIdx = checked(mlngTblBeg + 1);
@@ -179,7 +183,7 @@ namespace DXFLib.DXF
 			return InternReadTable;
 		}
 
-		private bool InternReadStyle(double vdblDefOwnerID, ref int rlngIdx, ref AcadTextStyles robjAcadTextStyles, ref string nrstrErrMsg = "")
+		private bool InternReadStyle(double vdblDefOwnerID, ref int rlngIdx, ref AcadTextStyles robjAcadTextStyles, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			Dictionary<object, object> dobjDictReactors2 = new Dictionary<object, object>();

@@ -1,5 +1,6 @@
 ﻿using DXFLib.Acad;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Compatibility.VB6;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DXFLib.DXF
 {
-    public class SysVar
+	public class SysVar
 	{
 		private const string cstrClassName = "SysVar";
 
@@ -261,7 +262,7 @@ namespace DXFLib.DXF
 		~SysVar()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -590,13 +591,13 @@ namespace DXFLib.DXF
 			}
 		}
 
-		internal bool FriendCheckType(object vvarValue, ref string nrstrErrMsg = "")
+		internal bool FriendCheckType(object vvarValue, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			return hwpDxf_SysVar.BkDXFSysVar_CheckType(mstrName, mnumVarType, RuntimeHelpers.GetObjectValue(mvarArraySize), RuntimeHelpers.GetObjectValue(vvarValue), ref nrstrErrMsg);
 		}
 
-		internal bool FriendCheckValue(object vvarValue, AcadTable vobjAcadTable, ref string nrstrErrMsg = "")
+		internal bool FriendCheckValue(object vvarValue, AcadTable vobjAcadTable, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			return InternCheckValue(RuntimeHelpers.GetObjectValue(vvarValue), vobjAcadTable, ref mdblObjectID, ref nrstrErrMsg);
@@ -612,7 +613,7 @@ namespace DXFLib.DXF
 			return hwpDxf_SysVar.BkDXFSysVar_StringValue(mnumVarType, RuntimeHelpers.GetObjectValue(vvarValue));
 		}
 
-		private bool InternCheckValue(object vvarValue, AcadTable vobjAcadTable, ref double rdblObjectID, ref string nrstrErrMsg = "")
+		private bool InternCheckValue(object vvarValue, AcadTable vobjAcadTable, ref double rdblObjectID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			rdblObjectID = -1.0;
