@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using DXFLib.DXF;
+using Microsoft.VisualBasic.Compatibility.VB6;
 
 namespace DXFLib.Acad
 {
@@ -277,7 +278,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectSequenceEnd(-1.0, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+				return FriendAddAcadObjectSequenceEnd(ref nrstrErrMsg, -1.0, nvblnWithoutObjectID: false);
 			}
 		}
 
@@ -386,55 +387,58 @@ namespace DXFLib.Acad
 			}
 		}
 
-		public object Coordinate
-		{
-			[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-			get
-			{
-				object[] dadecCoordinate = new object[3];
-				double[] dadblCoordinate = new double[3];
-				object Coordinate = default(object);
-				Acad3DVertex dobjAcad3DVertex2;
-				if ((vlngIndex < 0) | (vlngIndex > checked(mobjDictVertices.Count - 1)))
-				{
-					Information.Err().Raise(50000, "Acad3DPolyline", "Ungültiger Index.");
-				}
-				else
-				{
-					dobjAcad3DVertex2 = (Acad3DVertex)mobjDictVertices["K" + Conversions.ToString(vlngIndex)];
-					if (dobjAcad3DVertex2 != null)
-					{
-						Coordinate = RuntimeHelpers.GetObjectValue(dobjAcad3DVertex2.Coordinate);
-					}
-				}
-				dobjAcad3DVertex2 = null;
-				return Coordinate;
-			}
-			[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-			set
-			{
-				string dstrErrMsg = default(string);
-				Acad3DVertex dobjAcad3DVertex2;
-				if (!hwpDxf_Functions.BkDXF_CheckVariantForArrayReal(RuntimeHelpers.GetObjectValue(value), 0, 2, ref dstrErrMsg))
-				{
-					Information.Err().Raise(50000, "Acad3DPolyline", dstrErrMsg);
-				}
-				else if ((vlngIndex < 0) | (vlngIndex > checked(mobjDictVertices.Count - 1)))
-				{
-					Information.Err().Raise(50000, "Acad3DPolyline", "Ungültiger Index.");
-				}
-				else
-				{
-					dobjAcad3DVertex2 = (Acad3DVertex)mobjDictVertices["K" + Conversions.ToString(vlngIndex)];
-					if (dobjAcad3DVertex2 != null)
-					{
-						dobjAcad3DVertex2.FriendSetCoordinate(RuntimeHelpers.GetObjectValue(value));
-						InternCalcSize();
-					}
-				}
-				dobjAcad3DVertex2 = null;
-			}
-		}
+		//	NOTE BK  vlngIndex is not defined Start
+		//public object Coordinate
+		//{
+			//[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+			//get
+			//{
+			//	object[] dadecCoordinate = new object[3];
+			//	double[] dadblCoordinate = new double[3];
+			//	object Coordinate = default(object);
+			//	Acad3DVertex dobjAcad3DVertex2;
+			//	if ((vlngIndex < 0) | (vlngIndex > checked(mobjDictVertices.Count - 1)))
+			//	{
+			//		Information.Err().Raise(50000, "Acad3DPolyline", "Ungültiger Index.");
+			//	}
+			//	else
+			//	{
+			//		dobjAcad3DVertex2 = (Acad3DVertex)mobjDictVertices["K" + Conversions.ToString(vlngIndex)];
+			//		if (dobjAcad3DVertex2 != null)
+			//		{
+			//			Coordinate = RuntimeHelpers.GetObjectValue(dobjAcad3DVertex2.Coordinate);
+			//		}
+			//	}
+			//	dobjAcad3DVertex2 = null;
+			//	return Coordinate;
+			//}
+			//[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+			//set
+			//{
+			//	string dstrErrMsg = default(string);
+			//	Acad3DVertex dobjAcad3DVertex2;
+			//	if (!hwpDxf_Functions.BkDXF_CheckVariantForArrayReal(RuntimeHelpers.GetObjectValue(value), 0, 2, ref dstrErrMsg))
+			//	{
+			//		Information.Err().Raise(50000, "Acad3DPolyline", dstrErrMsg);
+			//	}
+			//	else if ((vlngIndex < 0) | (vlngIndex > checked(mobjDictVertices.Count - 1)))
+			//	{
+			//		Information.Err().Raise(50000, "Acad3DPolyline", "Ungültiger Index.");
+			//	}
+			//	else
+			//	{
+			//		dobjAcad3DVertex2 = (Acad3DVertex)mobjDictVertices["K" + Conversions.ToString(vlngIndex)];
+			//		if (dobjAcad3DVertex2 != null)
+			//		{
+			//			dobjAcad3DVertex2.FriendSetCoordinate(RuntimeHelpers.GetObjectValue(value));
+			//			InternCalcSize();
+			//		}
+			//	}
+			//	dobjAcad3DVertex2 = null;
+			//}
+			//	NOTE BK  vlngIndex is not defined End
+
+		//}
 
 		public object Coordinates
 		{
@@ -579,7 +583,7 @@ namespace DXFLib.Acad
 		~Acad3DPolyline()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -598,7 +602,7 @@ namespace DXFLib.Acad
 			}
 		}
 
-		internal AcadSequenceEnd FriendAddAcadObjectSequenceEnd(double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false, ref string nrstrErrMsg = "")
+		internal AcadSequenceEnd FriendAddAcadObjectSequenceEnd( ref string nrstrErrMsg, double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false)
 		{
 			AcadSequenceEnd dobjAcadSequenceEnd2;
 			if (mobjAcadSequenceEnd == null)
@@ -652,7 +656,7 @@ namespace DXFLib.Acad
 			InternCalcSize();
 		}
 
-		internal Acad3DVertex FriendAppendVertex(double vdblObjectID, object vvar3DVertex, ref string nrstrErrMsg = "")
+		internal Acad3DVertex FriendAppendVertex(double vdblObjectID, object vvar3DVertex, ref string nrstrErrMsg)
 		{
 			object[] dadecCoordinate = new object[3];
 			double[] dadblCoordinate = new double[3];

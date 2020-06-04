@@ -3476,7 +3476,7 @@ namespace DXFLib.DXF
 					}
 					else if (robjAcad3DPolyline != null)
 					{
-						dobjAcadSequenceEnd2 = robjAcad3DPolyline.FriendAddAcadObjectSequenceEnd(ddblObjectID, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+						dobjAcadSequenceEnd2 = robjAcad3DPolyline.FriendAddAcadObjectSequenceEnd(ref nrstrErrMsg, ddblObjectID, nvblnWithoutObjectID: false);
 					}
 					else if (robjAcadPolyline != null)
 					{
