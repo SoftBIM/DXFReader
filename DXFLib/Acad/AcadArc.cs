@@ -235,7 +235,7 @@ namespace DXFLib.Acad
 		~AcadArc()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

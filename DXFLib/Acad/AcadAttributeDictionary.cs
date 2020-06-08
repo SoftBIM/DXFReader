@@ -203,7 +203,7 @@ namespace DXFLib.Acad
 		~AcadAttributeDictionary()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

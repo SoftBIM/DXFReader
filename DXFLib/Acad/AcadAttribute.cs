@@ -162,7 +162,7 @@ namespace DXFLib.Acad
 		~AcadAttribute()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

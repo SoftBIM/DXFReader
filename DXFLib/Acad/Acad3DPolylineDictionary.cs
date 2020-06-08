@@ -207,7 +207,7 @@ namespace DXFLib.Acad
 		~Acad3DPolylineDictionary()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

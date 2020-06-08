@@ -32,7 +32,7 @@ namespace DXFLib.Acad
 		~Acad3DSolid()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

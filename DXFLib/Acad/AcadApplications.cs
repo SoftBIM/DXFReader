@@ -32,7 +32,7 @@ namespace DXFLib.Acad
 		~AcadApplications()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -48,11 +48,11 @@ namespace DXFLib.Acad
 
 		private void InternClear()
 		{
-			IEnumerator enumerator = default(IEnumerator);
+			IEnumerator<AcadApplication> enumerator = default(IEnumerator<AcadApplication>);
 			AcadApplication dobjAcadApplication2;
 			try
 			{
-				enumerator = mcolClass.Values.GetEnumerator();
+				enumerator = (IEnumerator<AcadApplication>)mcolClass.Values.GetEnumerator();
 				while (enumerator.MoveNext())
 				{
 					dobjAcadApplication2 = (AcadApplication)enumerator.Current;
@@ -117,7 +117,7 @@ namespace DXFLib.Acad
 				ProjectData.ClearProjectError();
 				num = 0;
 			}
-			catch (object obj) when (obj is Exception && num != 0 && num3 == 0)
+			catch (Exception obj) when (obj is Exception && num != 0 && num3 == 0)
 			{
 				ProjectData.SetProjectError((Exception)obj);
 				/*Error near IL_008b: Could not find block for branch target IL_0053*/
@@ -129,9 +129,9 @@ namespace DXFLib.Acad
 			}
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadApplication> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadApplication>)mcolClass.Values;
 		}
 	}
 }

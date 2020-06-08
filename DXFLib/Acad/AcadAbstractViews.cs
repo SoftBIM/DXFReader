@@ -24,7 +24,7 @@ namespace DXFLib.Acad
 		~AcadAbstractViews()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
