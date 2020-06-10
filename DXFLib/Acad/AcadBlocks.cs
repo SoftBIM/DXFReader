@@ -27,7 +27,7 @@ namespace DXFLib.Acad
 			set
 			{
 				base.FriendLetDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadBlock> enumerator = default(IEnumerator<AcadBlock>);
 				AcadBlock dobjAcadBlock2;
 				try
 				{
@@ -54,7 +54,7 @@ namespace DXFLib.Acad
 			set
 			{
 				base.FriendLetDocumentIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadBlock> enumerator = default(IEnumerator<AcadBlock>);
 				AcadBlock dobjAcadBlock2;
 				try
 				{
@@ -81,7 +81,7 @@ namespace DXFLib.Acad
 			set
 			{
 				base.FriendLetApplicationIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadBlock> enumerator = default(IEnumerator<AcadBlock>);
 				AcadBlock dobjAcadBlock2;
 				try
 				{
@@ -108,7 +108,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectBlockPaperSpace(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectBlockPaperSpace(ref nrstrErrMsg, - 1.0);
 			}
 		}
 
@@ -117,7 +117,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectBlockModelSpace(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectBlockModelSpace(ref nrstrErrMsg, -1.0);
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectBlockPaperSpace0(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectBlockPaperSpace0(ref nrstrErrMsg, - 1.0);
 			}
 		}
 
@@ -144,7 +144,7 @@ namespace DXFLib.Acad
 			base.FriendLetSubordinateObjectName = "AcDbBlockTable";
 		}
 
-		internal AcadPaperSpace FriendAddAcadObjectBlockPaperSpace(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadPaperSpace FriendAddAcadObjectBlockPaperSpace(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			AcadLayout dobjAcadLayout2;
 			AcadBlock dobjAcadBlock3;
@@ -154,7 +154,7 @@ namespace DXFLib.Acad
 				dobjAcadBlock3 = (AcadBlock)FriendGetItem(dstrBlockName);
 				if (dobjAcadBlock3 == null)
 				{
-					dobjAcadBlock3 = FriendAddAcadObject(dstrBlockName, Conversions.ToDouble(Interaction.IIf(nvdblObjectID == -1.0, base.Database.FriendGetNextObjectID, nvdblObjectID)), ref nrstrErrMsg);
+					dobjAcadBlock3 = FriendAddAcadObject(ref nrstrErrMsg, dstrBlockName, Conversions.ToDouble(Interaction.IIf(nvdblObjectID == -1.0, base.Database.FriendGetNextObjectID, nvdblObjectID)));
 					if (dobjAcadBlock3 == null)
 					{
 						goto IL_00c7;
@@ -169,15 +169,14 @@ namespace DXFLib.Acad
 					acadBlock = null;
 				}
 			}
-			AcadPaperSpace FriendAddAcadObjectBlockPaperSpace = mobjAcadPaperSpace;
 			goto IL_00c7;
 		IL_00c7:
 			dobjAcadLayout2 = null;
 			dobjAcadBlock3 = null;
-			return FriendAddAcadObjectBlockPaperSpace;
+			return mobjAcadPaperSpace;
 		}
 
-		internal AcadModelSpace FriendAddAcadObjectBlockModelSpace(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadModelSpace FriendAddAcadObjectBlockModelSpace(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			AcadLayout dobjAcadLayout2;
 			AcadBlock dobjAcadBlock3;
@@ -187,7 +186,7 @@ namespace DXFLib.Acad
 				dobjAcadBlock3 = (AcadBlock)FriendGetItem(dstrBlockName);
 				if (dobjAcadBlock3 == null)
 				{
-					dobjAcadBlock3 = FriendAddAcadObject(dstrBlockName, Conversions.ToDouble(Interaction.IIf(nvdblObjectID == -1.0, base.Database.FriendGetNextObjectID, nvdblObjectID)), ref nrstrErrMsg);
+					dobjAcadBlock3 = FriendAddAcadObject(ref nrstrErrMsg, dstrBlockName, Conversions.ToDouble(Interaction.IIf(nvdblObjectID == -1.0, base.Database.FriendGetNextObjectID, nvdblObjectID)));
 					if (dobjAcadBlock3 == null)
 					{
 						goto IL_00c7;
@@ -202,15 +201,14 @@ namespace DXFLib.Acad
 					acadBlock = null;
 				}
 			}
-			AcadModelSpace FriendAddAcadObjectBlockModelSpace = mobjAcadModelSpace;
 			goto IL_00c7;
 		IL_00c7:
 			dobjAcadLayout2 = null;
 			dobjAcadBlock3 = null;
-			return FriendAddAcadObjectBlockModelSpace;
+			return mobjAcadModelSpace;
 		}
 
-		internal AcadPaperSpace FriendAddAcadObjectBlockPaperSpace0(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadPaperSpace FriendAddAcadObjectBlockPaperSpace0(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			AcadLayout dobjAcadLayout2;
 			AcadBlock dobjAcadBlock3;
@@ -220,7 +218,7 @@ namespace DXFLib.Acad
 				dobjAcadBlock3 = (AcadBlock)FriendGetItem(dstrBlockName);
 				if (dobjAcadBlock3 == null)
 				{
-					dobjAcadBlock3 = FriendAddAcadObject(dstrBlockName, Conversions.ToDouble(Interaction.IIf(nvdblObjectID == -1.0, base.Database.FriendGetNextObjectID, nvdblObjectID)), ref nrstrErrMsg);
+					dobjAcadBlock3 = FriendAddAcadObject(ref nrstrErrMsg, dstrBlockName, Conversions.ToDouble(Interaction.IIf(nvdblObjectID == -1.0, base.Database.FriendGetNextObjectID, nvdblObjectID)));
 					if (dobjAcadBlock3 == null)
 					{
 						goto IL_00c7;
@@ -235,18 +233,17 @@ namespace DXFLib.Acad
 					acadBlock = null;
 				}
 			}
-			AcadPaperSpace FriendAddAcadObjectBlockPaperSpace0 = mobjAcadPaperSpace0;
 			goto IL_00c7;
 		IL_00c7:
 			dobjAcadLayout2 = null;
 			dobjAcadBlock3 = null;
-			return FriendAddAcadObjectBlockPaperSpace0;
+			return mobjAcadPaperSpace0;
 		}
 
 		~AcadBlocks()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -261,7 +258,7 @@ namespace DXFLib.Acad
 			}
 		}
 
-		internal AcadBlock FriendAddAcadObject(string vstrName, double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadBlock FriendAddAcadObject(ref string nrstrErrMsg, string vstrName, double nvdblObjectID = -1.0)
 		{
 			AcadBlock dobjAcadBlock3 = new AcadBlock();
 			if (nvdblObjectID == -1.0)
@@ -289,7 +286,7 @@ namespace DXFLib.Acad
 				{
 					if (dblnValid)
 					{
-						dobjAcadObject5 = acadBlock.FriendAddAcadObjectBlockBegin(-1.0, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+						dobjAcadObject5 = acadBlock.FriendAddAcadObjectBlockBegin(ref nrstrErrMsg , - 1.0, nvblnWithoutObjectID: false);
 						if (dobjAcadObject5 == null)
 						{
 							dblnValid = false;
@@ -298,7 +295,7 @@ namespace DXFLib.Acad
 					}
 					if (dblnValid)
 					{
-						dobjAcadObject5 = acadBlock.FriendAddAcadObjectBlockEnd(-1.0, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+						dobjAcadObject5 = acadBlock.FriendAddAcadObjectBlockEnd(ref nrstrErrMsg , - 1.0, nvblnWithoutObjectID: false);
 						if (dobjAcadObject5 == null)
 						{
 							dblnValid = false;

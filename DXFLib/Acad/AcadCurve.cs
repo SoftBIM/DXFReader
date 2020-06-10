@@ -7,6 +7,8 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Threading;
+using System.Diagnostics;
 
 namespace DXFLib.Acad
 {
@@ -1232,7 +1234,7 @@ namespace DXFLib.Acad
 		~AcadCurve()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

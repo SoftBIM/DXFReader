@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Specialized;
+using DXFLib.Basic;
 
 namespace DXFLib.Acad
 {
@@ -581,7 +583,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectBlockBegin(-1.0, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+				return FriendAddAcadObjectBlockBegin(ref nrstrErrMsg ,- 1.0, nvblnWithoutObjectID: false);
 			}
 		}
 
@@ -590,7 +592,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectBlockEnd(-1.0, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+				return FriendAddAcadObjectBlockEnd(ref nrstrErrMsg , - 1.0, nvblnWithoutObjectID: false);
 			}
 		}
 
@@ -752,7 +754,7 @@ namespace DXFLib.Acad
 			base.FriendLetObjectName = "AcDbBlockTableRecord";
 		}
 
-		internal AcadBlockBegin FriendAddAcadObjectBlockBegin(double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false, ref string nrstrErrMsg = "")
+		internal AcadBlockBegin FriendAddAcadObjectBlockBegin(ref string nrstrErrMsg, double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false)
 		{
 			AcadBlockBegin dobjAcadBlockBegin2;
 			if (mobjAcadBlockBegin == null)
@@ -801,7 +803,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectBlockBegin;
 		}
 
-		internal AcadBlockEnd FriendAddAcadObjectBlockEnd(double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false, ref string nrstrErrMsg = "")
+		internal AcadBlockEnd FriendAddAcadObjectBlockEnd(ref string nrstrErrMsg, double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false)
 		{
 			AcadBlockEnd dobjAcadBlockEnd2;
 			if (mobjAcadBlockEnd == null)
@@ -880,7 +882,7 @@ namespace DXFLib.Acad
 		~AcadBlock()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -1029,11 +1031,11 @@ namespace DXFLib.Acad
 
 		private void InternClear()
 		{
-			IEnumerator enumerator = default(IEnumerator);
+			IEnumerator<AcadEntity> enumerator = default(IEnumerator<AcadEntity>);
 			AcadEntity dobjAcadEntity2;
 			try
 			{
-				enumerator = mcolClass.Values.GetEnumerator();
+				enumerator = (IEnumerator<AcadEntity>)mcolClass.Values.GetEnumerator();
 				while (enumerator.MoveNext())
 				{
 					dobjAcadEntity2 = (AcadEntity)enumerator.Current;
@@ -1059,9 +1061,9 @@ namespace DXFLib.Acad
 			dobjAcadEntity2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadEntity> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadEntity>)mcolClass.Values;
 		}
 
 		internal bool FriendReplaceObjectID(ref AcadObject robjAcadObject, double vdblOldObjectID, double vdblNewObjectID)
@@ -1247,7 +1249,7 @@ namespace DXFLib.Acad
 			}
 		}
 
-		internal AcadArc FriendAddAcadObjectArc(double vdblObjectID, object vvarCenter, object vvarRadius, object vvarStartAngle, object vvarEndAngle, bool vblnAngleInDegree, ref string nrstrErrMsg = "")
+		internal AcadArc FriendAddAcadObjectArc(double vdblObjectID, object vvarCenter, object vvarRadius, object vvarStartAngle, object vvarEndAngle, bool vblnAngleInDegree, ref string nrstrErrMsg)
 		{
 			AcadArc dobjAcadArc3 = new AcadArc();
 			AcadArc acadArc = dobjAcadArc3;
@@ -1293,7 +1295,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectArc;
 		}
 
-		internal AcadCircle FriendAddAcadObjectCircle(double vdblObjectID, object vvarCenter, object vvarRadius, ref string nrstrErrMsg = "")
+		internal AcadCircle FriendAddAcadObjectCircle(double vdblObjectID, object vvarCenter, object vvarRadius, ref string nrstrErrMsg)
 		{
 			AcadCircle dobjAcadCircle3 = new AcadCircle();
 			AcadCircle acadCircle = dobjAcadCircle3;
@@ -1329,7 +1331,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectCircle;
 		}
 
-		internal AcadLWPolyline FriendAddAcadObjectLWPolyline(double vdblObjectID, object nvarVerticesList = null, ref string nrstrErrMsg = "")
+		internal AcadLWPolyline FriendAddAcadObjectLWPolyline(ref string nrstrErrMsg, double vdblObjectID, object nvarVerticesList = null)
 		{
 			AcadLWPolyline dobjAcadLWPolyline3 = new AcadLWPolyline();
 			AcadLWPolyline acadLWPolyline = dobjAcadLWPolyline3;
@@ -1371,7 +1373,7 @@ namespace DXFLib.Acad
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-		internal AcadLWPolyline FriendAddAcadObjectLWPolylineWithVertices(double vdblObjectID, object vobjVertices, ref string nrstrErrMsg = "")
+		internal AcadLWPolyline FriendAddAcadObjectLWPolylineWithVertices(double vdblObjectID, object vobjVertices, ref string nrstrErrMsg)
 		{
 			AcadLWPolyline dobjAcadLWPolyline3 = new AcadLWPolyline();
 			AcadLWPolyline acadLWPolyline = dobjAcadLWPolyline3;
@@ -1417,7 +1419,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectLWPolylineWithVertices;
 		}
 
-		internal AcadPolyline FriendAddAcadObjectPolyline(double vdblObjectID, object nvvarPointsArray = null, ref string nrstrErrMsg = "")
+		internal AcadPolyline FriendAddAcadObjectPolyline(ref string nrstrErrMsg, double vdblObjectID, object nvvarPointsArray = null)
 		{
 			AcadPolyline dobjAcadPolyline3 = new AcadPolyline();
 			AcadPolyline acadPolyline = dobjAcadPolyline3;
@@ -1458,7 +1460,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectPolyline;
 		}
 
-		internal Acad3DPolyline FriendAddAcadObject3DPolyline(double vdblObjectID, object nvvarPointsArray = null, ref string nrstrErrMsg = "")
+		internal Acad3DPolyline FriendAddAcadObject3DPolyline(ref string nrstrErrMsg, double vdblObjectID, object nvvarPointsArray = null)
 		{
 			Acad3DPolyline dobjAcad3DPolyline3 = new Acad3DPolyline();
 			Acad3DPolyline acad3DPolyline = dobjAcad3DPolyline3;
@@ -1498,7 +1500,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObject3DPolyline;
 		}
 
-		internal AcadPolygonMesh FriendAddAcadObjectPolygonMesh(double vdblObjectID, int nvlngMVertexCount = 0, int nvlngNVertexCount = 0, object nvvarPointsMatrix = null, ref string nrstrErrMsg = "")
+		internal AcadPolygonMesh FriendAddAcadObjectPolygonMesh(ref string nrstrErrMsg, double vdblObjectID, int nvlngMVertexCount = 0, int nvlngNVertexCount = 0, object nvvarPointsMatrix = null)
 		{
 			AcadPolygonMesh FriendAddAcadObjectPolygonMesh = default(AcadPolygonMesh);
 			AcadPolygonMesh dobjAcadPolygonMesh3;
@@ -1538,7 +1540,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectPolygonMesh;
 		}
 
-		internal AcadPolyfaceMesh FriendAddAcadObjectPolyfaceMesh(double vdblObjectID, object nvvarVertexList = null, object nvvarFaceList = null, ref string nrstrErrMsg = "")
+		internal AcadPolyfaceMesh FriendAddAcadObjectPolyfaceMesh(ref string nrstrErrMsg, double vdblObjectID, object nvvarVertexList = null, object nvvarFaceList = null)
 		{
 			AcadPolyfaceMesh dobjAcadPolyfaceMesh3 = new AcadPolyfaceMesh();
 			AcadPolyfaceMesh acadPolyfaceMesh = dobjAcadPolyfaceMesh3;
@@ -1573,7 +1575,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectPolyfaceMesh;
 		}
 
-		internal AcadLine FriendAddAcadObjectLine(double vdblObjectID, object vvarStartPoint, object vvarEndPoint, ref string nrstrErrMsg = "")
+		internal AcadLine FriendAddAcadObjectLine(double vdblObjectID, object vvarStartPoint, object vvarEndPoint, ref string nrstrErrMsg)
 		{
 			AcadLine dobjAcadLine3 = new AcadLine();
 			AcadLine acadLine = dobjAcadLine3;
@@ -1609,7 +1611,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectLine;
 		}
 
-		internal AcadMText FriendAddAcadObjectMText(double vdblObjectID, object vvarInsertionPoint, object vvarWidth, string vstrText, ref string nrstrErrMsg = "")
+		internal AcadMText FriendAddAcadObjectMText(double vdblObjectID, object vvarInsertionPoint, object vvarWidth, string vstrText, ref string nrstrErrMsg)
 		{
 			AcadMText dobjAcadMText3 = new AcadMText();
 			AcadMText acadMText = dobjAcadMText3;
@@ -1646,7 +1648,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectMText;
 		}
 
-		internal AcadTrace FriendAddAcadObjectTrace(double vdblObjectID, object nvvarPointsArray = null, ref string nrstrErrMsg = "")
+		internal AcadTrace FriendAddAcadObjectTrace(ref string nrstrErrMsg, double vdblObjectID, object nvvarPointsArray = null)
 		{
 			AcadTrace dobjAcadTrace3 = new AcadTrace();
 			AcadTrace acadTrace = dobjAcadTrace3;
@@ -1681,7 +1683,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectTrace;
 		}
 
-		internal AcadSolid FriendAddAcadObjectSolid(double vdblObjectID, object nvvarPointsArray = null, ref string nrstrErrMsg = "")
+		internal AcadSolid FriendAddAcadObjectSolid(ref string nrstrErrMsg, double vdblObjectID, object nvvarPointsArray = null)
 		{
 			AcadSolid dobjAcadSolid3 = new AcadSolid();
 			AcadSolid acadSolid = dobjAcadSolid3;
@@ -1716,7 +1718,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectSolid;
 		}
 
-		internal AcadPoint FriendAddAcadObjectPoint(double vdblObjectID, object vvarPoint, ref string nrstrErrMsg = "")
+		internal AcadPoint FriendAddAcadObjectPoint(double vdblObjectID, object vvarPoint, ref string nrstrErrMsg)
 		{
 			AcadPoint dobjAcadPoint3 = new AcadPoint();
 			AcadPoint acadPoint = dobjAcadPoint3;
@@ -1751,7 +1753,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectPoint;
 		}
 
-		internal AcadSpline FriendAddAcadObjectSpline(double vdblObjectID, object vvarPointsArray, object vvarStartTangent, object vvarEndTangent, ref string nrstrErrMsg = "")
+		internal AcadSpline FriendAddAcadObjectSpline(double vdblObjectID, object vvarPointsArray, object vvarStartTangent, object vvarEndTangent, ref string nrstrErrMsg)
 		{
 			AcadSpline dobjAcadSpline3 = new AcadSpline();
 			AcadSpline acadSpline = dobjAcadSpline3;
@@ -1810,7 +1812,7 @@ namespace DXFLib.Acad
 			}
 		}
 
-		internal AcadText FriendAddAcadObjectText(double vdblObjectID, string vstrTextString, object vvarInsertionPoint, object vvarHeight, ref string nrstrErrMsg = "")
+		internal AcadText FriendAddAcadObjectText(double vdblObjectID, string vstrTextString, object vvarInsertionPoint, object vvarHeight, ref string nrstrErrMsg)
 		{
 			AcadText dobjAcadText3 = new AcadText();
 			AcadText acadText = dobjAcadText3;
@@ -1852,7 +1854,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectText;
 		}
 
-		internal AcadShape FriendAddAcadObjectShape(double vdblObjectID, string vstrName, object vvarInsertionPoint, object vvarScaleFactor, object vvarRotationAngleDegree, ref string nrstrErrMsg = "")
+		internal AcadShape FriendAddAcadObjectShape(double vdblObjectID, string vstrName, object vvarInsertionPoint, object vvarScaleFactor, object vvarRotationAngleDegree, ref string nrstrErrMsg)
 		{
 			AcadShape dobjAcadShape3 = new AcadShape();
 			AcadShape acadShape = dobjAcadShape3;
@@ -1890,7 +1892,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectShape;
 		}
 
-		internal AcadEllipse FriendAddAcadObjectEllipse(double vdblObjectID, object vvarCenter, object vvarMajorAxis, object vvarRadiusRatio, ref string nrstrErrMsg = "")
+		internal AcadEllipse FriendAddAcadObjectEllipse(double vdblObjectID, object vvarCenter, object vvarMajorAxis, object vvarRadiusRatio, ref string nrstrErrMsg)
 		{
 			AcadEllipse dobjAcadEllipse3 = new AcadEllipse();
 			AcadEllipse acadEllipse = dobjAcadEllipse3;
@@ -1927,7 +1929,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectEllipse;
 		}
 
-		internal AcadXline FriendAddAcadObjectXline(double vdblObjectID, object vvarPoint1, object vvarPoint2, ref string nrstrErrMsg = "")
+		internal AcadXline FriendAddAcadObjectXline(double vdblObjectID, object vvarPoint1, object vvarPoint2, ref string nrstrErrMsg)
 		{
 			AcadXline dobjAcadXline3 = new AcadXline();
 			AcadXline acadXline = dobjAcadXline3;
@@ -1962,7 +1964,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectXline;
 		}
 
-		internal AcadHatch FriendAddAcadObjectHatch(double vdblObjectID, int vlngPatternType, string vstrPatternName, bool vblnAssociativity, ref string nrstrErrMsg = "")
+		internal AcadHatch FriendAddAcadObjectHatch(double vdblObjectID, int vlngPatternType, string vstrPatternName, bool vblnAssociativity, ref string nrstrErrMsg)
 		{
 			AcadHatch dobjAcadHatch3 = new AcadHatch();
 			AcadHatch acadHatch = dobjAcadHatch3;
@@ -1999,7 +2001,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectHatch;
 		}
 
-		internal AcadRay FriendAddAcadObjectRay(double vdblObjectID, object vvarPoint1, object vvarPoint2, ref string nrstrErrMsg = "")
+		internal AcadRay FriendAddAcadObjectRay(double vdblObjectID, object vvarPoint1, object vvarPoint2, ref string nrstrErrMsg)
 		{
 			AcadRay dobjAcadRay3 = new AcadRay();
 			AcadRay acadRay = dobjAcadRay3;
@@ -2034,7 +2036,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectRay;
 		}
 
-		internal AcadAttribute FriendAddAcadObjectAttribute(double vdblObjectID, object vvarHeight, Enums.AcAttributeMode vnumMode, string vstrPrompt, object vvarInsertionPoint, string vstrTag, string vstrValue, ref string nrstrErrMsg = "")
+		internal AcadAttribute FriendAddAcadObjectAttribute(double vdblObjectID, object vvarHeight, Enums.AcAttributeMode vnumMode, string vstrPrompt, object vvarInsertionPoint, string vstrTag, string vstrValue, ref string nrstrErrMsg)
 		{
 			AcadAttribute dobjAcadAttribute3 = new AcadAttribute();
 			AcadAttribute acadAttribute = dobjAcadAttribute3;
@@ -2074,7 +2076,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectAttribute;
 		}
 
-		internal AcadMInsertBlock FriendAddAcadObjectMInsertBlock(double vdblObjectID, object vvarInsertionPoint, string vstrName, object vvarXScale, object vvarYScale, object vvarZScale, object vvarRotationDegree, int vlngNumRows, int vlngNumColumns, object vvarRowSpacing, object vvarColumnSpacing, ref string nrstrErrMsg = "")
+		internal AcadMInsertBlock FriendAddAcadObjectMInsertBlock(double vdblObjectID, object vvarInsertionPoint, string vstrName, object vvarXScale, object vvarYScale, object vvarZScale, object vvarRotationDegree, int vlngNumRows, int vlngNumColumns, object vvarRowSpacing, object vvarColumnSpacing, ref string nrstrErrMsg)
 		{
 			AcadMInsertBlock dobjAcadMInsertBlock3 = new AcadMInsertBlock();
 			AcadMInsertBlock acadMInsertBlock = dobjAcadMInsertBlock3;
@@ -2118,7 +2120,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectMInsertBlock;
 		}
 
-		internal AcadBlockReference FriendAddAcadObjectInsertBlock(double vdblObjectID, object vvarInsertionPoint, string vstrName, object vvarXScale, object vvarYScale, object vvarZScale, object vvarRotationDegree, ref string nrstrErrMsg = "")
+		internal AcadBlockReference FriendAddAcadObjectInsertBlock(double vdblObjectID, object vvarInsertionPoint, string vstrName, object vvarXScale, object vvarYScale, object vvarZScale, object vvarRotationDegree, ref string nrstrErrMsg)
 		{
 			AcadBlockReference dobjAcadBlockReference3 = new AcadBlockReference();
 			AcadBlockReference acadBlockReference = dobjAcadBlockReference3;
@@ -2158,7 +2160,7 @@ namespace DXFLib.Acad
 			return FriendAddAcadObjectInsertBlock;
 		}
 
-		internal AcadUnknownEnt FriendAddAcadObjectUnknownEnt(double vdblObjectID, Dictionary<object, object> vobjDictCodes, Dictionary<object, object> vobjDictValues, ref string nrstrErrMsg = "")
+		internal AcadUnknownEnt FriendAddAcadObjectUnknownEnt(double vdblObjectID, Dictionary<object, object> vobjDictCodes, Dictionary<object, object> vobjDictValues, ref string nrstrErrMsg)
 		{
 			AcadUnknownEnt dobjAcadUnknownEnt3 = new AcadUnknownEnt();
 			AcadUnknownEnt acadUnknownEnt = dobjAcadUnknownEnt3;
@@ -2258,7 +2260,7 @@ namespace DXFLib.Acad
 		{
 			double ddblObjectID = (Operators.CompareString(nvstrHandle, null, TextCompare: false) != 0) ? hwpDxf_Functions.BkDXF_HexToDbl(nvstrHandle) : base.Database.FriendGetNextObjectID;
 			string dstrErrMsg = default(string);
-			AcadPolygonMesh dobjAcadPolygonMesh2 = FriendAddAcadObjectPolygonMesh(ddblObjectID, vlngM, vlngN, RuntimeHelpers.GetObjectValue(vvarPointsMatrix), ref dstrErrMsg);
+			AcadPolygonMesh dobjAcadPolygonMesh2 = FriendAddAcadObjectPolygonMesh(ref dstrErrMsg, ddblObjectID, vlngM, vlngN, RuntimeHelpers.GetObjectValue(vvarPointsMatrix));
 			AcadPolygonMesh Add3DMesh = default(AcadPolygonMesh);
 			if (dobjAcadPolygonMesh2 == null)
 			{
@@ -2277,7 +2279,7 @@ namespace DXFLib.Acad
 		{
 			double ddblObjectID = (Operators.CompareString(nvstrHandle, null, TextCompare: false) != 0) ? hwpDxf_Functions.BkDXF_HexToDbl(nvstrHandle) : base.Database.FriendGetNextObjectID;
 			string dstrErrMsg = default(string);
-			Acad3DPolyline dobjAcad3DPolyline2 = FriendAddAcadObject3DPolyline(ddblObjectID, RuntimeHelpers.GetObjectValue(vvarPointsArray), ref dstrErrMsg);
+			Acad3DPolyline dobjAcad3DPolyline2 = FriendAddAcadObject3DPolyline(ref dstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(vvarPointsArray));
 			Acad3DPolyline Add3DPoly = default(Acad3DPolyline);
 			if (dobjAcad3DPolyline2 == null)
 			{
@@ -2496,7 +2498,7 @@ namespace DXFLib.Acad
 		{
 			double ddblObjectID = (Operators.CompareString(nvstrHandle, null, TextCompare: false) != 0) ? hwpDxf_Functions.BkDXF_HexToDbl(nvstrHandle) : base.Database.FriendGetNextObjectID;
 			string dstrErrMsg = default(string);
-			AcadLWPolyline dobjAcadLWPolyline2 = FriendAddAcadObjectLWPolyline(ddblObjectID, RuntimeHelpers.GetObjectValue(vvarVerticesList), ref dstrErrMsg);
+			AcadLWPolyline dobjAcadLWPolyline2 = FriendAddAcadObjectLWPolyline(ref dstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(vvarVerticesList));
 			AcadLWPolyline AddLightWeightPolyline = default(AcadLWPolyline);
 			if (dobjAcadLWPolyline2 == null)
 			{
@@ -2534,7 +2536,7 @@ namespace DXFLib.Acad
 		{
 			double ddblObjectID = (Operators.CompareString(nvstrHandle, null, TextCompare: false) != 0) ? hwpDxf_Functions.BkDXF_HexToDbl(nvstrHandle) : base.Database.FriendGetNextObjectID;
 			string dstrErrMsg = default(string);
-			AcadPolyline dobjAcadPolyline2 = FriendAddAcadObjectPolyline(ddblObjectID, RuntimeHelpers.GetObjectValue(vvarVerticesList), ref dstrErrMsg);
+			AcadPolyline dobjAcadPolyline2 = FriendAddAcadObjectPolyline(ref dstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(vvarVerticesList));
 			AcadPolyline AddPolyline = default(AcadPolyline);
 			if (dobjAcadPolyline2 == null)
 			{
@@ -2649,7 +2651,7 @@ namespace DXFLib.Acad
 		{
 			double ddblObjectID = (Operators.CompareString(nvstrHandle, null, TextCompare: false) != 0) ? hwpDxf_Functions.BkDXF_HexToDbl(nvstrHandle) : base.Database.FriendGetNextObjectID;
 			string dstrErrMsg = default(string);
-			AcadPolyfaceMesh dobjAcadPolyfaceMesh2 = FriendAddAcadObjectPolyfaceMesh(ddblObjectID, RuntimeHelpers.GetObjectValue(vvarVertexList), RuntimeHelpers.GetObjectValue(vvarFaceList), ref dstrErrMsg);
+			AcadPolyfaceMesh dobjAcadPolyfaceMesh2 = FriendAddAcadObjectPolyfaceMesh(ref dstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(vvarVertexList), RuntimeHelpers.GetObjectValue(vvarFaceList));
 			AcadPolyfaceMesh AddPolyfaceMesh = default(AcadPolyfaceMesh);
 			if (dobjAcadPolyfaceMesh2 == null)
 			{
@@ -2755,7 +2757,7 @@ namespace DXFLib.Acad
 			2
 			}, null));
 			string dstrErrMsg = default(string);
-			AcadSolid dobjAcadSolid2 = FriendAddAcadObjectSolid(ddblObjectID, davarCoordinates, ref dstrErrMsg);
+			AcadSolid dobjAcadSolid2 = FriendAddAcadObjectSolid(ref dstrErrMsg, ddblObjectID, davarCoordinates);
 			AcadSolid AddSolid = default(AcadSolid);
 			if (dobjAcadSolid2 == null)
 			{
@@ -2842,7 +2844,7 @@ namespace DXFLib.Acad
 		{
 			double ddblObjectID = (Operators.CompareString(nvstrHandle, null, TextCompare: false) != 0) ? hwpDxf_Functions.BkDXF_HexToDbl(nvstrHandle) : base.Database.FriendGetNextObjectID;
 			string dstrErrMsg = default(string);
-			AcadTrace dobjAcadTrace2 = FriendAddAcadObjectTrace(ddblObjectID, RuntimeHelpers.GetObjectValue(vvarPointsArray), ref dstrErrMsg);
+			AcadTrace dobjAcadTrace2 = FriendAddAcadObjectTrace(ref dstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(vvarPointsArray));
 			AcadTrace AddTrace = default(AcadTrace);
 			if (dobjAcadTrace2 == null)
 			{

@@ -146,7 +146,7 @@ namespace DXFLib.DXF
 				bool dblnError = !hwpDxf_ReadBas.BkDXFReadBas_XData(ref dlngIdx, mobjDictReadCodes, mobjDictReadValues, ref dvarXDataType, ref dvarXDataValue, ref nrstrErrMsg);
 				if (!dblnError)
 				{
-					mobjAcadBlocks = mobjAcadDatabase.FriendAddAcadObjectBlocks(ddblObjectID, ref nrstrErrMsg);
+					mobjAcadBlocks = mobjAcadDatabase.FriendAddAcadObjectBlocks(ref nrstrErrMsg, ddblObjectID);
 					if (mobjAcadBlocks == null)
 					{
 						nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";
@@ -242,7 +242,7 @@ namespace DXFLib.DXF
 								}
 								else
 								{
-									dobjAcadBlock2 = robjAcadBlocks.FriendAddAcadObject(dstrName, ddblObjectID, ref nrstrErrMsg);
+									dobjAcadBlock2 = robjAcadBlocks.FriendAddAcadObject(ref nrstrErrMsg, dstrName, ddblObjectID);
 									if (dobjAcadBlock2 == null)
 									{
 										nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";

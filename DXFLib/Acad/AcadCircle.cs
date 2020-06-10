@@ -10,7 +10,7 @@ using DXFLib.DXF;
 
 namespace DXFLib.Acad
 {
-    public class AcadCircle : AcadCurve
+	public class AcadCircle : AcadCurve
 	{
 		private const string cstrClassName = "AcadCircle";
 
@@ -152,7 +152,7 @@ namespace DXFLib.Acad
 		~AcadCircle()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

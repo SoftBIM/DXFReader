@@ -147,7 +147,7 @@ namespace DXFLib.Acad
 		~AcadAttributeReference()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

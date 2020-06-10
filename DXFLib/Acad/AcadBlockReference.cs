@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -121,7 +122,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectSequenceEnd(-1.0, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+				return FriendAddAcadObjectSequenceEnd(ref nrstrErrMsg , - 1.0, nvblnWithoutObjectID: false);
 			}
 		}
 
@@ -378,7 +379,7 @@ namespace DXFLib.Acad
 			base.FriendLetEntityType = Enums.AcEntityName.acBlockReference;
 		}
 
-		internal AcadSequenceEnd FriendAddAcadObjectSequenceEnd(double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false, ref string nrstrErrMsg = "")
+		internal AcadSequenceEnd FriendAddAcadObjectSequenceEnd(ref string nrstrErrMsg, double nvdblObjectID = -1.0, bool nvblnWithoutObjectID = false)
 		{
 			AcadSequenceEnd dobjAcadSequenceEnd2;
 			if (mblnHasAttributes && mobjAcadSequenceEnd == null)
@@ -429,7 +430,7 @@ namespace DXFLib.Acad
 		~AcadBlockReference()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -456,11 +457,11 @@ namespace DXFLib.Acad
 
 		private void InternClear()
 		{
-			IEnumerator enumerator = default(IEnumerator);
+			IEnumerator<AcadEntity> enumerator = default(IEnumerator<AcadEntity>);
 			AcadEntity dobjAcadEntity2;
 			try
 			{
-				enumerator = mcolClass.Values.GetEnumerator();
+				enumerator = (IEnumerator <AcadEntity>)mcolClass.Values.GetEnumerator();
 				while (enumerator.MoveNext())
 				{
 					dobjAcadEntity2 = (AcadEntity)enumerator.Current;
@@ -477,9 +478,9 @@ namespace DXFLib.Acad
 			dobjAcadEntity2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadEntity> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadEntity>)mcolClass.Values;
 		}
 
 		internal bool FriendReplaceObjectID(ref AcadObject robjAcadObject, double vdblOldObjectID, double vdblNewObjectID)
@@ -514,7 +515,7 @@ namespace DXFLib.Acad
 			return FriendReplaceObjectID2;
 		}
 
-		internal AcadAttributeReference FriendAddAcadObjectAttributeReference(double vdblObjectID, object vvarHeight, Enums.AcAttributeMode vnumMode, object vvarInsertionPoint, string vstrTag, string vstrValue, ref string nrstrErrMsg = "")
+		internal AcadAttributeReference FriendAddAcadObjectAttributeReference(double vdblObjectID, object vvarHeight, Enums.AcAttributeMode vnumMode, object vvarInsertionPoint, string vstrTag, string vstrValue, ref string nrstrErrMsg)
 		{
 			AcadAttributeReference dobjAcadAttributeReference3 = new AcadAttributeReference();
 			AcadAttributeReference acadAttributeReference = dobjAcadAttributeReference3;

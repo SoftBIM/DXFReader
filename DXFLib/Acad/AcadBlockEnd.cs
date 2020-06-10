@@ -47,7 +47,7 @@ namespace DXFLib.Acad
 		~AcadBlockEnd()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

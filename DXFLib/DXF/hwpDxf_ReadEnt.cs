@@ -1228,7 +1228,7 @@ namespace DXFLib.DXF
 									{
 										hwpDxf_Vars.pblnAddLWPolylineStopCalcSize = true;
 										object[] dadecVerticesList = default(object[]);
-										dobjAcadLWPolyline2 = robjAcadBlock.FriendAddAcadObjectLWPolyline(ddblObjectID, RuntimeHelpers.GetObjectValue(Interaction.IIf(Expression: false, dadecVerticesList, dadblVerticesList)), ref nrstrErrMsg);
+										dobjAcadLWPolyline2 = robjAcadBlock.FriendAddAcadObjectLWPolyline(ref nrstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(Interaction.IIf(Expression: false, dadecVerticesList, dadblVerticesList)));
 										if (dobjAcadLWPolyline2 == null)
 										{
 											nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";
@@ -1563,7 +1563,7 @@ namespace DXFLib.DXF
 												case "AcDb2dPolyline":
 													{
 														hwpDxf_Vars.pblnAddPolylineStopCalcSize = true;
-														robjAcadPolyline = robjAcadBlock.FriendAddAcadObjectPolyline(ddblObjectID, null, ref nrstrErrMsg);
+														robjAcadPolyline = robjAcadBlock.FriendAddAcadObjectPolyline(ref nrstrErrMsg, ddblObjectID, null);
 														if (robjAcadPolyline == null)
 														{
 															nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";
@@ -1606,7 +1606,7 @@ namespace DXFLib.DXF
 												case "AcDb3dPolyline":
 													{
 														hwpDxf_Vars.pblnAdd3DPolylineStopCalcSize = true;
-														robjAcad3DPolyline = robjAcadBlock.FriendAddAcadObject3DPolyline(ddblObjectID, null, ref nrstrErrMsg);
+														robjAcad3DPolyline = robjAcadBlock.FriendAddAcadObject3DPolyline(ref nrstrErrMsg, ddblObjectID, null);
 														if (robjAcad3DPolyline == null)
 														{
 															nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";
@@ -1642,7 +1642,7 @@ namespace DXFLib.DXF
 													}
 												case "AcDbPolygonMesh":
 													{
-														robjAcadPolygonMesh = robjAcadBlock.FriendAddAcadObjectPolygonMesh(ddblObjectID, 0, 0, null, ref nrstrErrMsg);
+														robjAcadPolygonMesh = robjAcadBlock.FriendAddAcadObjectPolygonMesh(ref nrstrErrMsg, ddblObjectID, 0, 0, null);
 														if (robjAcadPolygonMesh == null)
 														{
 															nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";
@@ -1697,7 +1697,7 @@ namespace DXFLib.DXF
 													}
 												case "AcDbPolyFaceMesh":
 													{
-														robjAcadPolyfaceMesh = robjAcadBlock.FriendAddAcadObjectPolyfaceMesh(ddblObjectID, null, null, ref nrstrErrMsg);
+														robjAcadPolyfaceMesh = robjAcadBlock.FriendAddAcadObjectPolyfaceMesh(ref nrstrErrMsg, ddblObjectID, null, null);
 														if (robjAcadPolyfaceMesh == null)
 														{
 															nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";
@@ -3484,11 +3484,11 @@ namespace DXFLib.DXF
 					}
 					else if (robjAcadMInsertBlock != null)
 					{
-						dobjAcadSequenceEnd2 = robjAcadMInsertBlock.FriendAddAcadObjectSequenceEnd(ddblObjectID, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+						dobjAcadSequenceEnd2 = robjAcadMInsertBlock.FriendAddAcadObjectSequenceEnd(ref nrstrErrMsg, ddblObjectID, nvblnWithoutObjectID: false);
 					}
 					else if (robjAcadBlockReference != null)
 					{
-						dobjAcadSequenceEnd2 = robjAcadBlockReference.FriendAddAcadObjectSequenceEnd(ddblObjectID, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+						dobjAcadSequenceEnd2 = robjAcadBlockReference.FriendAddAcadObjectSequenceEnd(ref nrstrErrMsg, ddblObjectID, nvblnWithoutObjectID: false);
 					}
 					if (dobjAcadSequenceEnd2 == null)
 					{
@@ -5922,7 +5922,7 @@ namespace DXFLib.DXF
 								dblnError = !BkDXFReadEnt_CheckBlockAsOwner(vobjAcadDatabase, ref robjAcadBlock, ddblOwnerID, ddblLineOwnerID, ref nrstrErrMsg);
 								if (!dblnError)
 								{
-									dobjAcadTrace2 = robjAcadBlock.FriendAddAcadObjectTrace(ddblObjectID, RuntimeHelpers.GetObjectValue(Interaction.IIf(Expression: false, dadecCoordinates, dadblCoordinates)), ref nrstrErrMsg);
+									dobjAcadTrace2 = robjAcadBlock.FriendAddAcadObjectTrace(ref nrstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(Interaction.IIf(Expression: false, dadecCoordinates, dadblCoordinates)));
 									if (dobjAcadTrace2 == null)
 									{
 										nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";
@@ -6128,7 +6128,7 @@ namespace DXFLib.DXF
 								dblnError = !BkDXFReadEnt_CheckBlockAsOwner(vobjAcadDatabase, ref robjAcadBlock, ddblOwnerID, ddblLineOwnerID, ref nrstrErrMsg);
 								if (!dblnError)
 								{
-									dobjAcadSolid2 = robjAcadBlock.FriendAddAcadObjectSolid(ddblObjectID, RuntimeHelpers.GetObjectValue(Interaction.IIf(Expression: false, dadecCoordinates, dadblCoordinates)), ref nrstrErrMsg);
+									dobjAcadSolid2 = robjAcadBlock.FriendAddAcadObjectSolid(ref nrstrErrMsg, ddblObjectID, RuntimeHelpers.GetObjectValue(Interaction.IIf(Expression: false, dadecCoordinates, dadblCoordinates)));
 									if (dobjAcadSolid2 == null)
 									{
 										nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";

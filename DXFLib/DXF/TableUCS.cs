@@ -145,7 +145,7 @@ namespace DXFLib.DXF
 				bool dblnError = !hwpDxf_ReadBas.BkDXFReadBas_XData(ref dlngIdx, mobjDictReadCodes, mobjDictReadValues, ref dvarXDataType, ref dvarXDataValue, ref nrstrErrMsg);
 				if (!dblnError)
 				{
-					mobjAcadUCSs = mobjAcadDatabase.FriendAddAcadObjectUCSs(ddblObjectID, ref nrstrErrMsg);
+					mobjAcadUCSs = mobjAcadDatabase.FriendAddAcadObjectUCSs(ref nrstrErrMsg, ddblObjectID);
 					if (mobjAcadUCSs == null)
 					{
 						nrstrErrMsg = "Das Objekt konnte nicht hinzugefügt werden.";

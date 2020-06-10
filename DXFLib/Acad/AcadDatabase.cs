@@ -300,7 +300,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectFontTable(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectFontTable(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -309,7 +309,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectVXTable(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectVXTable(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -318,7 +318,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectViewports(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectViewports(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -327,7 +327,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectLineTypes(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectLineTypes(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -336,7 +336,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectLayers(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectLayers(ref nrstrErrMsg, - 1.0);
 			}
 		}
 
@@ -345,7 +345,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectTextStyles(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectTextStyles(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -354,7 +354,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectViews(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectViews(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -363,7 +363,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectDimStyles(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectDimStyles(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -372,7 +372,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectUCSs(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectUCSs(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -381,7 +381,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectRegisteredApplications(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectRegisteredApplications(ref nrstrErrMsg, - 1.0);
 			}
 		}
 
@@ -390,7 +390,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectBlocks(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectBlocks(ref nrstrErrMsg, - 1.0);
 			}
 		}
 
@@ -399,7 +399,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				AcadBlocks dobjAcadBlocks2 = FriendAddAcadObjectBlocks(-1.0, ref nrstrErrMsg);
+				AcadBlocks dobjAcadBlocks2 = FriendAddAcadObjectBlocks(ref nrstrErrMsg , - 1.0);
 				AcadModelSpace ModelSpace = default(AcadModelSpace);
 				if (dobjAcadBlocks2 != null)
 				{
@@ -415,7 +415,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				AcadBlocks dobjAcadBlocks2 = FriendAddAcadObjectBlocks(-1.0, ref nrstrErrMsg);
+				AcadBlocks dobjAcadBlocks2 = FriendAddAcadObjectBlocks(ref nrstrErrMsg, - 1.0);
 				AcadPaperSpace PaperSpace = default(AcadPaperSpace);
 				if (dobjAcadBlocks2 != null)
 				{
@@ -431,7 +431,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				return FriendAddAcadObjectDictionaries(-1.0, ref nrstrErrMsg);
+				return FriendAddAcadObjectDictionaries(ref nrstrErrMsg , - 1.0);
 			}
 		}
 
@@ -440,7 +440,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(-1.0, ref nrstrErrMsg);
+				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(ref nrstrErrMsg , - 1.0);
 				AcadGroups Groups = default(AcadGroups);
 				if (dobjAcadDictionaries2 != null)
 				{
@@ -456,7 +456,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(-1.0, ref nrstrErrMsg);
+				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(ref nrstrErrMsg , - 1.0);
 				AcadDictionaryWithDefault PlotStyleNames = default(AcadDictionaryWithDefault);
 				if (dobjAcadDictionaries2 != null)
 				{
@@ -472,7 +472,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(-1.0, ref nrstrErrMsg);
+				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(ref nrstrErrMsg , - 1.0);
 				AcadMLineStyles MlineStyles = default(AcadMLineStyles);
 				if (dobjAcadDictionaries2 != null)
 				{
@@ -488,7 +488,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(-1.0, ref nrstrErrMsg);
+				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(ref nrstrErrMsg , - 1.0);
 				AcadPlotConfigurations PlotConfigurations = default(AcadPlotConfigurations);
 				if (dobjAcadDictionaries2 != null)
 				{
@@ -504,7 +504,7 @@ namespace DXFLib.Acad
 			get
 			{
 				string nrstrErrMsg = "";
-				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(-1.0, ref nrstrErrMsg);
+				AcadDictionaries dobjAcadDictionaries2 = FriendAddAcadObjectDictionaries(ref nrstrErrMsg , - 1.0);
 				AcadLayouts Layouts = default(AcadLayouts);
 				if (dobjAcadDictionaries2 != null)
 				{
@@ -636,62 +636,62 @@ namespace DXFLib.Acad
 			Classes.FriendAddAcDbPlaceholder();
 			Classes.FriendAddAcDbLayout();
 			string nrstrErrMsg = "";
-			AcadObject dobjAcadObject59 = FriendAddAcadObjectBlocks(-1.0, ref nrstrErrMsg);
+			AcadObject dobjAcadObject59 = FriendAddAcadObjectBlocks(ref nrstrErrMsg, - 1.0);
 			if (dobjAcadObject59 != null)
 			{
 				dobjAcadObject59 = null;
 				nrstrErrMsg = "";
-				dobjAcadObject59 = FriendAddAcadObjectLayers(-1.0, ref nrstrErrMsg);
+				dobjAcadObject59 = FriendAddAcadObjectLayers(ref nrstrErrMsg , - 1.0);
 				if (dobjAcadObject59 != null)
 				{
 					dobjAcadObject59 = null;
 					nrstrErrMsg = "";
-					dobjAcadObject59 = FriendAddAcadObjectTextStyles(-1.0, ref nrstrErrMsg);
+					dobjAcadObject59 = FriendAddAcadObjectTextStyles(ref nrstrErrMsg, - 1.0);
 					if (dobjAcadObject59 != null)
 					{
 						dobjAcadObject59 = null;
 						nrstrErrMsg = "";
-						dobjAcadObject59 = FriendAddAcadObjectFontTable(-1.0, ref nrstrErrMsg);
+						dobjAcadObject59 = FriendAddAcadObjectFontTable(ref nrstrErrMsg , - 1.0);
 						if (dobjAcadObject59 != null)
 						{
 							dobjAcadObject59 = null;
 							nrstrErrMsg = "";
-							dobjAcadObject59 = FriendAddAcadObjectLineTypes(-1.0, ref nrstrErrMsg);
+							dobjAcadObject59 = FriendAddAcadObjectLineTypes(ref nrstrErrMsg,- 1.0);
 							if (dobjAcadObject59 != null)
 							{
 								dobjAcadObject59 = null;
 								nrstrErrMsg = "";
-								dobjAcadObject59 = FriendAddAcadObjectViews(-1.0, ref nrstrErrMsg);
+								dobjAcadObject59 = FriendAddAcadObjectViews(ref nrstrErrMsg , - 1.0);
 								if (dobjAcadObject59 != null)
 								{
 									dobjAcadObject59 = null;
 									nrstrErrMsg = "";
-									dobjAcadObject59 = FriendAddAcadObjectUCSs(-1.0, ref nrstrErrMsg);
+									dobjAcadObject59 = FriendAddAcadObjectUCSs(ref nrstrErrMsg , - 1.0);
 									if (dobjAcadObject59 != null)
 									{
 										dobjAcadObject59 = null;
 										nrstrErrMsg = "";
-										dobjAcadObject59 = FriendAddAcadObjectViewports(-1.0, ref nrstrErrMsg);
+										dobjAcadObject59 = FriendAddAcadObjectViewports(ref nrstrErrMsg , - 1.0);
 										if (dobjAcadObject59 != null)
 										{
 											dobjAcadObject59 = null;
 											nrstrErrMsg = "";
-											dobjAcadObject59 = FriendAddAcadObjectRegisteredApplications(-1.0, ref nrstrErrMsg);
+											dobjAcadObject59 = FriendAddAcadObjectRegisteredApplications(ref nrstrErrMsg , - 1.0);
 											if (dobjAcadObject59 != null)
 											{
 												dobjAcadObject59 = null;
 												nrstrErrMsg = "";
-												dobjAcadObject59 = FriendAddAcadObjectDimStyles(-1.0, ref nrstrErrMsg);
+												dobjAcadObject59 = FriendAddAcadObjectDimStyles(ref nrstrErrMsg , - 1.0);
 												if (dobjAcadObject59 != null)
 												{
 													dobjAcadObject59 = null;
 													nrstrErrMsg = "";
-													dobjAcadObject59 = FriendAddAcadObjectVXTable(-1.0, ref nrstrErrMsg);
+													dobjAcadObject59 = FriendAddAcadObjectVXTable(ref nrstrErrMsg , - 1.0);
 													if (dobjAcadObject59 != null)
 													{
 														dobjAcadObject59 = null;
 														nrstrErrMsg = "";
-														dobjAcadObject59 = FriendAddAcadObjectDictionaries(-1.0, ref nrstrErrMsg);
+														dobjAcadObject59 = FriendAddAcadObjectDictionaries(ref nrstrErrMsg , - 1.0);
 														if (dobjAcadObject59 != null)
 														{
 															dobjAcadObject59 = null;
@@ -779,19 +779,19 @@ namespace DXFLib.Acad
 																												dobjAcadObject59 = null;
 																												AcadBlocks blocks = Blocks;
 																												nrstrErrMsg = "";
-																												AcadBlock dobjAcadBlock7 = blocks.FriendAddAcadObjectBlockPaperSpace(-1.0, ref nrstrErrMsg).FriendGetAcadBlock();
+																												AcadBlock dobjAcadBlock7 = blocks.FriendAddAcadObjectBlockPaperSpace(ref nrstrErrMsg , - 1.0).FriendGetAcadBlock();
 																												if (dobjAcadBlock7 != null)
 																												{
 																													dobjAcadBlock7 = null;
 																													AcadBlocks blocks2 = Blocks;
 																													nrstrErrMsg = "";
-																													dobjAcadBlock7 = blocks2.FriendAddAcadObjectBlockModelSpace(-1.0, ref nrstrErrMsg).FriendGetAcadBlock();
+																													dobjAcadBlock7 = blocks2.FriendAddAcadObjectBlockModelSpace(ref nrstrErrMsg, - 1.0).FriendGetAcadBlock();
 																													if (dobjAcadBlock7 != null)
 																													{
 																														dobjAcadBlock7 = null;
 																														AcadBlocks blocks3 = Blocks;
 																														nrstrErrMsg = "";
-																														dobjAcadBlock7 = blocks3.FriendAddAcadObjectBlockPaperSpace0(-1.0, ref nrstrErrMsg).FriendGetAcadBlock();
+																														dobjAcadBlock7 = blocks3.FriendAddAcadObjectBlockPaperSpace0(ref nrstrErrMsg, - 1.0).FriendGetAcadBlock();
 																														if (dobjAcadBlock7 != null)
 																														{
 																															dobjAcadBlock7 = null;
@@ -872,7 +872,7 @@ namespace DXFLib.Acad
 			return mobjAcadClasses;
 		}
 
-		internal AcadBlocks FriendAddAcadObjectBlocks(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadBlocks FriendAddAcadObjectBlocks(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadBlocks == null)
 			{
@@ -906,7 +906,7 @@ namespace DXFLib.Acad
 			return mobjAcadBlocks;
 		}
 
-		internal AcadLayers FriendAddAcadObjectLayers(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadLayers FriendAddAcadObjectLayers(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadLayers == null)
 			{
@@ -940,7 +940,7 @@ namespace DXFLib.Acad
 			return mobjAcadLayers;
 		}
 
-		internal AcadTextStyles FriendAddAcadObjectTextStyles(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadTextStyles FriendAddAcadObjectTextStyles(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadTextStyles == null)
 			{
@@ -974,7 +974,7 @@ namespace DXFLib.Acad
 			return mobjAcadTextStyles;
 		}
 
-		internal AcadFontTable FriendAddAcadObjectFontTable(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadFontTable FriendAddAcadObjectFontTable(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadFontTable == null)
 			{
@@ -1008,7 +1008,7 @@ namespace DXFLib.Acad
 			return mobjAcadFontTable;
 		}
 
-		internal AcadLineTypes FriendAddAcadObjectLineTypes(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadLineTypes FriendAddAcadObjectLineTypes(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadLineTypes == null)
 			{
@@ -1042,7 +1042,7 @@ namespace DXFLib.Acad
 			return mobjAcadLineTypes;
 		}
 
-		internal AcadViews FriendAddAcadObjectViews(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadViews FriendAddAcadObjectViews(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadViews == null)
 			{
@@ -1076,7 +1076,7 @@ namespace DXFLib.Acad
 			return mobjAcadViews;
 		}
 
-		internal AcadUCSs FriendAddAcadObjectUCSs(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadUCSs FriendAddAcadObjectUCSs(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadUCSs == null)
 			{
@@ -1110,7 +1110,7 @@ namespace DXFLib.Acad
 			return mobjAcadUCSs;
 		}
 
-		internal AcadViewports FriendAddAcadObjectViewports(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadViewports FriendAddAcadObjectViewports(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadViewports == null)
 			{
@@ -1144,7 +1144,7 @@ namespace DXFLib.Acad
 			return mobjAcadViewports;
 		}
 
-		internal AcadRegisteredApplications FriendAddAcadObjectRegisteredApplications(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadRegisteredApplications FriendAddAcadObjectRegisteredApplications(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadRegisteredApplications == null)
 			{
@@ -1178,7 +1178,7 @@ namespace DXFLib.Acad
 			return mobjAcadRegisteredApplications;
 		}
 
-		internal AcadDimStyles FriendAddAcadObjectDimStyles(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadDimStyles FriendAddAcadObjectDimStyles(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadDimStyles == null)
 			{
@@ -1212,7 +1212,7 @@ namespace DXFLib.Acad
 			return mobjAcadDimStyles;
 		}
 
-		internal AcadVXTable FriendAddAcadObjectVXTable(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadVXTable FriendAddAcadObjectVXTable(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadVXTable == null)
 			{
@@ -1246,7 +1246,7 @@ namespace DXFLib.Acad
 			return mobjAcadVXTable;
 		}
 
-		internal AcadDictionaries FriendAddAcadObjectDictionaries(double nvdblObjectID = -1.0, ref string nrstrErrMsg = "")
+		internal AcadDictionaries FriendAddAcadObjectDictionaries(ref string nrstrErrMsg, double nvdblObjectID = -1.0)
 		{
 			if (mobjAcadDictionaries == null)
 			{
@@ -1292,7 +1292,7 @@ namespace DXFLib.Acad
 		~AcadDatabase()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -1386,7 +1386,7 @@ namespace DXFLib.Acad
 			return mobjDictObjectID.ContainsKey("K" + Conversions.ToString(vdblObjectID));
 		}
 
-		internal bool FriendValidObjectID(double vdblObjectID, ref string nrstrErrMsg = "")
+		internal bool FriendValidObjectID(double vdblObjectID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (vdblObjectID <= 0.0)
@@ -1460,7 +1460,7 @@ namespace DXFLib.Acad
 			return InternCheckReplacedObjectID;
 		}
 
-		internal bool FriendHandleToObject(string vstrHandle, ref AcadObject robjAcadObject, ref string nrstrErrMsg = "")
+		internal bool FriendHandleToObject(string vstrHandle, ref AcadObject robjAcadObject, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjAcadObject = null;
@@ -1478,7 +1478,7 @@ namespace DXFLib.Acad
 			return true;
 		}
 
-		internal bool FriendObjectIdToObject(double vdblObjectID, ref AcadObject robjAcadObject, ref string nrstrErrMsg = "")
+		internal bool FriendObjectIdToObject(double vdblObjectID, ref AcadObject robjAcadObject, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (mobjDictObjectID.ContainsKey("K" + Conversions.ToString(vdblObjectID)))
@@ -1492,7 +1492,7 @@ namespace DXFLib.Acad
 			return FriendObjectIdToObject;
 		}
 
-		internal bool FriendObjectIdToNodeID(double vdblObjectID, ref int rlngNodeID, ref string nrstrErrMsg = "")
+		internal bool FriendObjectIdToNodeID(double vdblObjectID, ref int rlngNodeID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			rlngNodeID = -1;
@@ -1511,7 +1511,7 @@ namespace DXFLib.Acad
 			return FriendObjectIdToNodeID;
 		}
 
-		internal bool FriendHandleToNodeID(string vstrHandle, ref int rlngNodeID, ref string nrstrErrMsg = "")
+		internal bool FriendHandleToNodeID(string vstrHandle, ref int rlngNodeID, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			rlngNodeID = -1;

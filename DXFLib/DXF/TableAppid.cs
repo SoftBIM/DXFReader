@@ -136,7 +136,7 @@ namespace DXFLib.DXF
 			bool InternReadTable = default(bool);
 			if (hwpDxf_ReadRef.BkDXFReadRef_AcadSymbolTable(mobjAcadDatabase, mobjDictReadCodes, mobjDictReadValues, ref dlngIdx, ref ddblObjectID, ref ddblOwnerID, ref dlngCount, ref dobjDictXDictionary2, ref nrstrErrMsg))
 			{
-				mobjAcadRegisteredApplications = mobjAcadDatabase.FriendAddAcadObjectRegisteredApplications(ddblObjectID, ref nrstrErrMsg);
+				mobjAcadRegisteredApplications = mobjAcadDatabase.FriendAddAcadObjectRegisteredApplications(ref nrstrErrMsg, ddblObjectID);
 				bool dblnError = default(bool);
 				if (mobjAcadRegisteredApplications == null)
 				{

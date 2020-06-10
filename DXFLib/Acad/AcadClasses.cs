@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -49,11 +50,11 @@ namespace DXFLib.Acad
 			{
 				InternCheckOpened("FriendLetDatabaseIndex");
 				mlngDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadClass> enumerator = default(IEnumerator<AcadClass>);
 				AcadClass dobjAcadClass2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadClass>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadClass2 = (AcadClass)enumerator.Current;
@@ -86,11 +87,11 @@ namespace DXFLib.Acad
 			{
 				InternCheckOpened("FriendLetDocumentIndex");
 				mlngDocumentIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadClass> enumerator = default(IEnumerator<AcadClass>);
 				AcadClass dobjAcadClass2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadClass>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadClass2 = (AcadClass)enumerator.Current;
@@ -123,11 +124,11 @@ namespace DXFLib.Acad
 			{
 				InternCheckOpened("FriendLetApplicationIndex");
 				mlngApplicationIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadClass> enumerator = default(IEnumerator<AcadClass>);
 				AcadClass dobjAcadClass2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadClass>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadClass2 = (AcadClass)enumerator.Current;
@@ -294,7 +295,7 @@ namespace DXFLib.Acad
 		~AcadClasses()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -314,11 +315,11 @@ namespace DXFLib.Acad
 
 		private void InternClear()
 		{
-			IEnumerator enumerator = default(IEnumerator);
+			IEnumerator<AcadClass> enumerator = default(IEnumerator<AcadClass>);
 			AcadClass dobjAcadClass2;
 			try
 			{
-				enumerator = mcolClass.Values.GetEnumerator();
+				enumerator = (IEnumerator<AcadClass>)mcolClass.Values.GetEnumerator();
 				while (enumerator.MoveNext())
 				{
 					dobjAcadClass2 = (AcadClass)enumerator.Current;
@@ -337,9 +338,9 @@ namespace DXFLib.Acad
 			dobjAcadClass2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadClass> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadClass>)mcolClass.Values;
 		}
 
 		internal AcadClass FriendAdd(string vstrOriginalClassName)
@@ -384,12 +385,12 @@ namespace DXFLib.Acad
 		{
 			InternCheckOpened("FriendGetItemByOriginalClassName");
 			vstrOriginalClassName = Strings.UCase(vstrOriginalClassName);
-			IEnumerator enumerator = default(IEnumerator);
+			IEnumerator<AcadClass> enumerator = default(IEnumerator<AcadClass>);
 			AcadClass FriendGetItemByOriginalClassName = default(AcadClass);
 			AcadClass dobjAcadClass2;
 			try
 			{
-				enumerator = mcolClass.Values.GetEnumerator();
+				enumerator = (IEnumerator<AcadClass>)mcolClass.Values.GetEnumerator();
 				while (enumerator.MoveNext())
 				{
 					dobjAcadClass2 = (AcadClass)enumerator.Current;

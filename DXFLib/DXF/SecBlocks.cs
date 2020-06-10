@@ -276,7 +276,7 @@ namespace DXFLib.DXF
 
 		private bool InternAddAcadObjectBlockBegin(ref AcadBlock robjAcadBlock, double vdblObjectID, double vdblOwnerID, int vlngPaperSpace, string vstrLayer, string vstrLinetype, int vlngColor, object vvarLinetypeScale, int vlngVisible, int vlngRGB, Enums.AcLineWeight vnumLineweight, string vstrPlotStyleNameReference, Dictionary<object, object> vobjDictReactors, ref string nrstrErrMsg)
 		{
-			AcadBlockBegin dobjAcadBlockBegin2 = robjAcadBlock.FriendAddAcadObjectBlockBegin(vdblObjectID, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+			AcadBlockBegin dobjAcadBlockBegin2 = robjAcadBlock.FriendAddAcadObjectBlockBegin(ref nrstrErrMsg, vdblObjectID, nvblnWithoutObjectID: false);
 			bool InternAddAcadObjectBlockBegin = default(bool);
 			if (dobjAcadBlockBegin2 == null)
 			{
@@ -304,7 +304,7 @@ namespace DXFLib.DXF
 
 		private bool InternAddAcadObjectBlockEnd(ref AcadBlock robjAcadBlock, double vdblObjectID, double vdblOwnerID, int vlngPaperSpace, string vstrLayer, string vstrLinetype, int vlngColor, object vvarLinetypeScale, int vlngVisible, int vlngRGB, Enums.AcLineWeight vnumLineweight, string vstrPlotStyleNameReference, Dictionary<object, object> vobjDictReactors, ref string nrstrErrMsg)
 		{
-			AcadBlockEnd dobjAcadBlockEnd2 = robjAcadBlock.FriendAddAcadObjectBlockEnd(vdblObjectID, nvblnWithoutObjectID: false, ref nrstrErrMsg);
+			AcadBlockEnd dobjAcadBlockEnd2 = robjAcadBlock.FriendAddAcadObjectBlockEnd(ref nrstrErrMsg, vdblObjectID, nvblnWithoutObjectID: false);
 			bool InternAddAcadObjectBlockEnd = default(bool);
 			if (dobjAcadBlockEnd2 == null)
 			{

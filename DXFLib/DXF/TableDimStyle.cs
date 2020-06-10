@@ -159,7 +159,7 @@ namespace DXFLib.DXF
 			bool InternReadTable = default(bool);
 			if (hwpDxf_ReadRef.BkDXFReadRef_AcadSymbolTable(mobjAcadDatabase, mobjDictReadCodes, mobjDictReadValues, ref dlngIdx, ref ddblObjectID, ref ddblOwnerID, ref dlngCount, ref dobjDictXDictionary2, ref nrstrErrMsg))
 			{
-				mobjAcadDimStyles = mobjAcadDatabase.FriendAddAcadObjectDimStyles(ddblObjectID, ref nrstrErrMsg);
+				mobjAcadDimStyles = mobjAcadDatabase.FriendAddAcadObjectDimStyles(ref nrstrErrMsg, ddblObjectID);
 				bool dblnError;
 				if (mobjAcadDimStyles == null)
 				{

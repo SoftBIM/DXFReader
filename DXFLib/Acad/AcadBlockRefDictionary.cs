@@ -205,7 +205,7 @@ namespace DXFLib.Acad
 		~AcadBlockRefDictionary()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
