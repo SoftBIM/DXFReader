@@ -7,6 +7,7 @@ using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
 using Microsoft.VisualBasic;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -33,11 +34,11 @@ namespace DXFLib.Acad
 			set
 			{
 				mlngDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadSeedPoint> enumerator = default(IEnumerator<AcadSeedPoint>);
 				AcadSeedPoint dobjAcadSeedPoint2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadSeedPoint>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadSeedPoint2 = (AcadSeedPoint)enumerator.Current;
@@ -173,7 +174,7 @@ namespace DXFLib.Acad
 		~AcadSeedPoints()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -32,11 +33,11 @@ namespace DXFLib.Acad
 			set
 			{
 				mlngDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadPatternDefinition> enumerator = default(IEnumerator<AcadPatternDefinition>);
 				AcadPatternDefinition dobjAcadPatternDefinition2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadPatternDefinition>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadPatternDefinition2 = (AcadPatternDefinition)enumerator.Current;
@@ -172,7 +173,7 @@ namespace DXFLib.Acad
 		~AcadPatternDefinitions()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

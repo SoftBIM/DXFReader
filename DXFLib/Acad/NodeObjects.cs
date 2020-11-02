@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -35,11 +36,11 @@ namespace DXFLib.Acad
 
 		private void Class_Terminate_Renamed()
 		{
-			IEnumerator enumerator = default(IEnumerator);
+			IEnumerator<NodeObject> enumerator = default(IEnumerator<NodeObject>);
 			NodeObject dobjNodeObject2;
 			try
 			{
-				enumerator = mcolClass.Values.GetEnumerator();
+				enumerator = (IEnumerator<NodeObject>)mcolClass.Values.GetEnumerator();
 				while (enumerator.MoveNext())
 				{
 					dobjNodeObject2 = (NodeObject)enumerator.Current;
@@ -63,7 +64,7 @@ namespace DXFLib.Acad
 		~NodeObjects()
 		{
 			Class_Terminate_Renamed();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal bool FriendGetItem(int vlngIndex, ref NodeObject robjNodeObject)

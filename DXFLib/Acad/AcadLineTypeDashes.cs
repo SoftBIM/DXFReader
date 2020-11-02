@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -40,11 +41,11 @@ namespace DXFLib.Acad
 			set
 			{
 				mlngTableIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadLineTypeDash> enumerator = default(IEnumerator<AcadLineTypeDash>);
 				AcadLineTypeDash dobjAcadLineTypeDash2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadLineTypeDash>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadLineTypeDash2 = (AcadLineTypeDash)enumerator.Current;
@@ -225,7 +226,7 @@ namespace DXFLib.Acad
 		~AcadLineTypeDashes()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

@@ -13,6 +13,10 @@ namespace ConsoleRunner
         {
             Console.WriteLine("DXFReaderConsoleRunner");
             AcadApplications acadApplication = new AcadApplications();
+            AcadDocument acadDocument = new AcadDocument();
+            string fileName = string.Empty;
+            acadDocument.OpenDoc(fileName);
+
 
 
             Console.WriteLine("Press any key to exit the program");

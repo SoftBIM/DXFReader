@@ -205,7 +205,6 @@ namespace DXFLib.Acad
 		~AcadTraceDictionary()
 		{
 			FriendQuit();
-			base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -490,6 +489,5 @@ namespace DXFLib.Acad
 			return Item;
 		}
 	}
-	{
+
 	}
-}

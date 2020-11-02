@@ -7,6 +7,7 @@ using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
 using Microsoft.VisualBasic;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -61,7 +62,7 @@ namespace DXFLib.Acad
 		~AcadTable()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

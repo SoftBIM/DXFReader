@@ -8,6 +8,8 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Diagnostics;
+using System.Threading;
 
 namespace DXFLib.Acad
 {
@@ -1282,7 +1284,6 @@ namespace DXFLib.Acad
 		~AcadDocument()
 		{
 			FriendQuit();
-			base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -1408,7 +1409,7 @@ namespace DXFLib.Acad
 			}
 		}
 
-		internal bool FriendCloseDoc(bool nvblnSaveChanges = true, string nvstrFileName = null, ref string nrstrErrMsg = "")
+		internal bool FriendCloseDoc(ref string nrstrErrMsg, bool nvblnSaveChanges = true, string nvstrFileName = null)
 		{
 			nrstrErrMsg = null;
 			bool FriendCloseDoc = default(bool);
@@ -1429,7 +1430,7 @@ namespace DXFLib.Acad
 			return FriendCloseDoc;
 		}
 
-		internal bool FriendNewDoc(ref AcadDocument robjAcadDocument, ref string nrstrErrMsg = "")
+		internal bool FriendNewDoc(ref AcadDocument robjAcadDocument, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjAcadDocument = null;
@@ -1444,7 +1445,7 @@ namespace DXFLib.Acad
 			return true;
 		}
 
-		internal bool FriendOpenDoc(string vstrFileName, ref AcadDocument robjAcadDocument, ref string nrstrErrMsg = "")
+		internal bool FriendOpenDoc(string vstrFileName, ref AcadDocument robjAcadDocument, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjAcadDocument = null;
@@ -1474,7 +1475,7 @@ namespace DXFLib.Acad
 			return FriendOpenDoc;
 		}
 
-		internal bool FriendSave(string vstrFullFileName, ref string nrstrErrMsg = "")
+		internal bool FriendSave(string vstrFullFileName, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			string dstrOldFileName = (Operators.CompareString(mstrFullName, null, TextCompare: false) != 0) ? mstrFullName : (mstrPath + "\\" + mstrName);
@@ -1523,7 +1524,7 @@ namespace DXFLib.Acad
 			return FriendSave;
 		}
 
-		internal bool FriendSaveAs(string vstrFullFileName, ref string nrstrErrMsg = "")
+		internal bool FriendSaveAs(string vstrFullFileName, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			if (FriendSave(vstrFullFileName, ref nrstrErrMsg))
@@ -1534,7 +1535,7 @@ namespace DXFLib.Acad
 			return FriendSaveAs;
 		}
 
-		internal bool FriendHandleToObject(string vstrHandle, ref AcadObject robjAcadObject, ref string nrstrErrMsg = "")
+		internal bool FriendHandleToObject(string vstrHandle, ref AcadObject robjAcadObject, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjAcadObject = null;
@@ -1547,7 +1548,7 @@ namespace DXFLib.Acad
 			return true;
 		}
 
-		internal bool FriendObjectIdToObject(double vdblObjectID, ref AcadObject robjAcadObject, ref string nrstrErrMsg = "")
+		internal bool FriendObjectIdToObject(double vdblObjectID, ref AcadObject robjAcadObject, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			robjAcadObject = null;
@@ -1588,13 +1589,13 @@ namespace DXFLib.Acad
 		{
 			InternCheckOpened("CloseDoc");
 			string dstrErrMsg = default(string);
-			if (!FriendCloseDoc(nvblnSaveChanges, nvstrFileName, ref dstrErrMsg))
+			if (!FriendCloseDoc(ref dstrErrMsg, nvblnSaveChanges, nvstrFileName))
 			{
 				Information.Err().Raise(50000, "AcadDocument", dstrErrMsg);
 			}
 		}
 
-		public object CopyObjects(object vvarObjects, object nvvarOwner = null, ref object nrvarIdPairs = null)
+		public object CopyObjects(ref object nrvarIdPairs, object vvarObjects, object nvvarOwner = null)
 		{
 			InternCheckOpened("CopyObjects");
 			object CopyObjects = default(object);
@@ -1914,10 +1915,10 @@ namespace DXFLib.Acad
 			dobjAcadDimStyles2 = null;
 		}
 
-		private bool InternWriteFile(string vstrFileName, ref AcadDocument robjAcadDocument, ref string nrstrErrMsg = "")
+		private bool InternWriteFile(string vstrFileName, ref AcadDocument robjAcadDocument, ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
-			GBU.Dxf.File dobjDXFFile3 = new GBU.Dxf.File();
+			DXFLib.DXF.File dobjDXFFile3 = new DXFLib.DXF.File();
 			dobjDXFFile3.Init(ref robjAcadDocument);
 			dobjDXFFile3.ListFile();
 			bool InternWriteFile = default(bool);

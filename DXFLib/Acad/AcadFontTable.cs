@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -23,7 +24,7 @@ namespace DXFLib.Acad
 			set
 			{
 				base.FriendLetDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadFontTableRecord> enumerator = default(IEnumerator<AcadFontTableRecord>);
 				AcadFontTableRecord dobjAcadFontTableRecord2;
 				try
 				{
@@ -122,7 +123,7 @@ namespace DXFLib.Acad
 		~AcadFontTable()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -139,11 +140,11 @@ namespace DXFLib.Acad
 
 		private void InternClear()
 		{
-			IEnumerator enumerator = default(IEnumerator);
+			IEnumerator<AcadFontTableRecord> enumerator = default(IEnumerator<AcadFontTableRecord>);
 			AcadFontTableRecord dobjAcadFontTableRecord2;
 			try
 			{
-				enumerator = mcolClass.Values.GetEnumerator();
+				enumerator = (IEnumerator<AcadFontTableRecord>)mcolClass.Values.GetEnumerator();
 				while (enumerator.MoveNext())
 				{
 					dobjAcadFontTableRecord2 = (AcadFontTableRecord)enumerator.Current;
@@ -161,9 +162,9 @@ namespace DXFLib.Acad
 			dobjAcadFontTableRecord2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadFontTableRecord> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadFontTableRecord>)mcolClass.Values;
 		}
 
 		internal AcadFontTableRecord FriendGetItem(object vvarIndex)

@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -31,11 +32,11 @@ namespace DXFLib.Acad
 			set
 			{
 				mlngDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadMLineStyleElement> enumerator = default(IEnumerator<AcadMLineStyleElement>);
 				AcadMLineStyleElement dobjAcadMLineStyleElement2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadMLineStyleElement>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadMLineStyleElement2 = (AcadMLineStyleElement)enumerator.Current;
@@ -171,7 +172,7 @@ namespace DXFLib.Acad
 		~AcadMLineStyleElements()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

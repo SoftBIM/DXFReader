@@ -7,6 +7,8 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Drawing;
+using System.Resources;
 
 namespace DXFLib.Acad
 {
@@ -108,7 +110,7 @@ namespace DXFLib.Acad
 		~NodeObject()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -142,7 +144,8 @@ namespace DXFLib.Acad
 
 		public Image NodeGetImageDisabled()
 		{
-			ResourceManager resMan = Resources.ResourceManager;
+			ResourceManager resMan = null;
+			//resMan = Resources.ResourceManager;
 			object obj = RuntimeHelpers.GetObjectValue(resMan.GetObject("ico" + mlngNodeImageDisabledID, CultureInfo.InvariantCulture));
 			Icon theIcon = (Icon)obj;
 			return theIcon.ToBitmap();

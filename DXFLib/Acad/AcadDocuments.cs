@@ -44,7 +44,7 @@ namespace DXFLib.Acad
 		[CompilerGenerated]
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 		[AccessedThroughProperty("mobjDXFFile")]
-		private File _mobjDXFFile;
+		private DXFLib.DXF.File _mobjDXFFile;
 
 		[CompilerGenerated]
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -59,7 +59,7 @@ namespace DXFLib.Acad
 		private ReadEndEventHandler ReadEndEvent;
 
 		[field: AccessedThroughProperty("mobjDXFFile")]
-		private File mobjDXFFile
+		private DXFLib.DXF.File mobjDXFFile
 		{
 			get;
 			[MethodImpl(MethodImplOptions.Synchronized)]
@@ -272,7 +272,7 @@ namespace DXFLib.Acad
 		~AcadDocuments()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -323,9 +323,9 @@ namespace DXFLib.Acad
 			dobjAcadDocument2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadDocument> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadDocument>)mcolClass.Values;
 		}
 
 		internal void FriendSetNewDoc(ref AcadDocument robjAcadDocument)
@@ -772,7 +772,7 @@ namespace DXFLib.Acad
 		private bool InternReadFile(string vstrFileName, ref AcadDocument robjAcadDocument, ref string nrstrErrMsg = "")
 		{
 			nrstrErrMsg = null;
-			mobjDXFFile = new File();
+			mobjDXFFile = new DXFLib.DXF.File();
 			mobjDXFFile.Init(ref robjAcadDocument);
 			bool InternReadFile = default(bool);
 			if (!mobjDXFFile.ReadFile(vstrFileName, ref nrstrErrMsg))

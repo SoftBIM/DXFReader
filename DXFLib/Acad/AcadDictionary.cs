@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -179,7 +180,7 @@ namespace DXFLib.Acad
 		~AcadDictionary()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
@@ -246,9 +247,9 @@ namespace DXFLib.Acad
 			}
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadObject> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadObject>)mcolClass.Values;
 		}
 
 		internal AcadObject FriendAdd(string vstrName, double vdblObjectID, ref AcadObject robjAcadObject)

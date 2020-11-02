@@ -7,6 +7,7 @@ using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
 using Microsoft.VisualBasic;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -23,7 +24,7 @@ namespace DXFLib.Acad
 			set
 			{
 				base.FriendLetDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadVXTableRecord> enumerator = default(IEnumerator<AcadVXTableRecord>);
 				AcadVXTableRecord dobjAcadVXTableRecord2;
 				try
 				{
@@ -122,7 +123,7 @@ namespace DXFLib.Acad
 		~AcadVXTable()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

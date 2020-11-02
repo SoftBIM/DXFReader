@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
@@ -32,11 +33,11 @@ namespace DXFLib.Acad
 			set
 			{
 				mlngDatabaseIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadLoopEdge> enumerator = default(IEnumerator<AcadLoopEdge>);
 				AcadLoopEdge dobjAcadLoopEdge2;
 				try
 				{
-					enumerator = mcolClass.Values.GetEnumerator();
+					enumerator = (IEnumerator<AcadLoopEdge>)mcolClass.Values.GetEnumerator();
 					while (enumerator.MoveNext())
 					{
 						dobjAcadLoopEdge2 = (AcadLoopEdge)enumerator.Current;
@@ -172,7 +173,7 @@ namespace DXFLib.Acad
 		~AcadLoopEdges()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()
