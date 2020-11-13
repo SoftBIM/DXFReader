@@ -1,17 +1,11 @@
-﻿using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System.Runtime.CompilerServices;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
+﻿using DXFLib.Acad;
 using DXFLib.Basic;
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.Compatibility.VB6;
-using DXFLib.Acad;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace DXFLib.DXF
 {
@@ -576,6 +570,7 @@ namespace DXFLib.DXF
 				string dstrErrMsg = ExceptionHelper.GetExceptionMessage(ex);
 				Information.Err().Raise(50000, "UtilTime", "Fehler beim Addieren/Subtrahieren der Datumsangaben.\n" + dstrErrMsg);
 				ProjectData.ClearProjectError();
+				JulDateCalc = default(decimal);
 				return JulDateCalc;
 			}
 		}
@@ -662,6 +657,7 @@ namespace DXFLib.DXF
 				}
 			}
 		IL_025a:
+			JulDateAddIntervall = default;
 			return JulDateAddIntervall;
 		}
 

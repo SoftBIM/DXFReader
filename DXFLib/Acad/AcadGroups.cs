@@ -114,7 +114,7 @@ namespace DXFLib.Acad
 		~AcadGroups()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

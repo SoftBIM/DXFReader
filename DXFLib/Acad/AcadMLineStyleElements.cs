@@ -212,9 +212,9 @@ namespace DXFLib.Acad
 			dobjAcadMLineStyleElement2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadMLineStyleElement> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadMLineStyleElement>)mcolClass.Values;
 		}
 
 		internal AcadMLineStyleElement FriendAdd(object vvarOffset, Enums.AcColor vnumColor, string vstrLinetype, ref string nrstrErrMsg = "")

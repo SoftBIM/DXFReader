@@ -1,0 +1,1 @@
+C:\Temp\DXFReader\ConsoleRunner\obj\Debug\ConsoleRunner.csprojAssemblyReference.cache

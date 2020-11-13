@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using Microsoft.VisualBasic;
 
 namespace DXFLib.Acad
 {
@@ -156,7 +157,7 @@ namespace DXFLib.Acad
 		~AcadMLineStyles()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

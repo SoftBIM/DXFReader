@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Runtime.CompilerServices;
 using DXFLib.DXF;
+using Microsoft.VisualBasic;
 
 namespace DXFLib.Acad
 {
-	class AcadMLineStyle : AcadObject
+	public class AcadMLineStyle : AcadObject
 	{
 		private const string cstrClassName = "AcadMLineStyle";
 
@@ -381,7 +382,7 @@ namespace DXFLib.Acad
 		~AcadMLineStyle()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal new void FriendQuit()

@@ -156,7 +156,7 @@ namespace DXFLib.Acad
 		~AcadModelSpace()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -169,7 +169,7 @@ namespace DXFLib.Acad
 			}
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadEntity> GetValues()
 		{
 			return mobjAcadBlock.GetValues();
 		}

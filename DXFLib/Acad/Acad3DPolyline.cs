@@ -1,14 +1,10 @@
-﻿using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
+﻿using DXFLib.DXF;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Compatibility.VB6;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using DXFLib.DXF;
-using Microsoft.VisualBasic.Compatibility.VB6;
 
 namespace DXFLib.Acad
 {

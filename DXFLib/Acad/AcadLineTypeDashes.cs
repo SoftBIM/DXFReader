@@ -266,12 +266,12 @@ namespace DXFLib.Acad
 			dobjAcadLineTypeDash2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadLineTypeDash> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadLineTypeDash>)mcolClass.Values;
 		}
 
-		internal AcadLineTypeDash FriendAdd(ref string nrstrErrMsg = "")
+		internal AcadLineTypeDash FriendAdd(ref string nrstrErrMsg)
 		{
 			nrstrErrMsg = null;
 			checked

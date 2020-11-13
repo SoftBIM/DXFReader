@@ -11,7 +11,7 @@ using System.Collections.Specialized;
 
 namespace DXFLib.Acad
 {
-	class AcadGroup : AcadObject
+	public class AcadGroup : AcadObject
 	{
 		private const string cstrClassName = "AcadGroup";
 
@@ -402,9 +402,9 @@ namespace DXFLib.Acad
 			dobjAcadEntity2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadEntity> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadEntity>)mcolClass.Values;
 		}
 
 		internal AcadEntity FriendGetItem(object vvarIndex)

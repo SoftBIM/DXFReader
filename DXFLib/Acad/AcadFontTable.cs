@@ -51,7 +51,7 @@ namespace DXFLib.Acad
 			set
 			{
 				base.FriendLetDocumentIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadFontTableRecord> enumerator = default(IEnumerator<AcadFontTableRecord>);
 				AcadFontTableRecord dobjAcadFontTableRecord2;
 				try
 				{
@@ -78,7 +78,7 @@ namespace DXFLib.Acad
 			set
 			{
 				base.FriendLetApplicationIndex = value;
-				IEnumerator enumerator = default(IEnumerator);
+				IEnumerator<AcadFontTableRecord> enumerator = default(IEnumerator<AcadFontTableRecord>);
 				AcadFontTableRecord dobjAcadFontTableRecord2;
 				try
 				{
@@ -213,7 +213,7 @@ namespace DXFLib.Acad
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-		internal AcadFontTableRecord FriendAddAcadObject(string vstrName, ref string nrstrErrMsg = "")
+		internal AcadFontTableRecord FriendAddAcadObject(string vstrName, ref string nrstrErrMsg)
 		{
 			AcadFontTableRecord dobjAcadFontTableRecord4 = new AcadFontTableRecord();
 			AcadFontTableRecord acadFontTableRecord = dobjAcadFontTableRecord4;

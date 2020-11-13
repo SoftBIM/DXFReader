@@ -42,7 +42,7 @@ namespace DXFLib.Acad
 		~AcadDatabases()
 		{
 			FriendQuit();
-			base.Finalize();
+			//base.Finalize();
 		}
 
 		internal void FriendQuit()
@@ -121,9 +121,9 @@ namespace DXFLib.Acad
 			mcolClass.Remove("K" + Conversions.ToString(vlngIndex));
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadDatabase> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadDatabase>)mcolClass.Values;
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]

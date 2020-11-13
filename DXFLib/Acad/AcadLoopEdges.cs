@@ -213,9 +213,9 @@ namespace DXFLib.Acad
 			dobjAcadLoopEdge2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadLoopEdge> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadLoopEdge>)mcolClass.Values;
 		}
 
 		internal AcadLoopEdge FriendAdd()

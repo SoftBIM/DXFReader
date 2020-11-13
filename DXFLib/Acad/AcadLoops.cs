@@ -213,9 +213,9 @@ namespace DXFLib.Acad
 			dobjAcadLoop2 = null;
 		}
 
-		public ICollection GetValues()
+		public ICollection<AcadLoop> GetValues()
 		{
-			return mcolClass.Values;
+			return (ICollection<AcadLoop>)mcolClass.Values;
 		}
 
 		internal AcadLoop FriendAdd()
